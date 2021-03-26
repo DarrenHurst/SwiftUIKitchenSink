@@ -9,10 +9,18 @@ import Foundation
 import SwiftUI
 import Combine
 
-public class LoginViewModel: ObservableObject {
-    
+protocol LoginViewModelProtocol {
+    var username: String { get set }
+    var password: String { get set }
+    static var shared: LoginViewModel { get set }
+}
+
+public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
+ 
+    //Protocol
     @Published var username: String = ""
     @Published var password: String = ""
+    static var shared: LoginViewModel = LoginViewModel()
     
     @Published var usernameMessage: String = ""
     @Published var passwordMessage: String = ""
@@ -20,7 +28,7 @@ public class LoginViewModel: ObservableObject {
 
     
     private var cancellableSet: Set<AnyCancellable> = []
-    static let shared = LoginViewModel()
+
     init() {
         
         isUsernameValidPublisher.receive(on: RunLoop.main)
