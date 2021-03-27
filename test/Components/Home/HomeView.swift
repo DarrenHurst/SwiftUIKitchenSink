@@ -42,7 +42,7 @@ struct HomeView: View {
                 SecureField("SECUREFIELD", text: $model.secureField)
                 TextEditor(text: $model.textEditor)
                 Toggle("TOGGLE", isOn:$model.toggleField)
-                Image("TDLogo")
+                Image("Logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30.0, height: 30.0, alignment: .leading)
