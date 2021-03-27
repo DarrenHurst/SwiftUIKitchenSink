@@ -9,12 +9,6 @@ import Foundation
 import SwiftUI
 import Combine
 
-protocol LoginViewModelProtocol {
-    var username: String { get set }
-    var password: String { get set }
-    static var shared: LoginViewModel { get set }
-}
-
 public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
  
     //Protocol

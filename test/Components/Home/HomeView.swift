@@ -27,6 +27,7 @@ enum pickerSelection: String, CaseIterable, Identifiable {
 
 var id: String { self.rawValue }
 }
+
 struct HomeView: View {
     
     @ObservedObject private var model = testModel.shared
@@ -71,7 +72,7 @@ struct showPicker : View {
     var body: some View {
         
         VStack.init(alignment: .leading, spacing: 1.0, content: {
-            Button("X", action: {
+            Button("Close", action: {
                 presentationMode.wrappedValue.dismiss()
             })
             Spacer()
@@ -84,34 +85,7 @@ struct showPicker : View {
         }).frame(width: UIScreen.screenWidth, height: 80.0, alignment: .bottom)
     }
 }
-extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
-}
 
-struct SettingsView: View {
-    var body: some View {
-        Text("Settings")
-        .navigationBarTitle("Settings",
-                            displayMode: .automatic)
-    }
-}
 
-// MainView Tab bar
-    struct MainView: View {
-        var body: some View {
-            TabView{
-                HomeView().tabItem {
-            Image(systemName: "heart.fill")
-            Text("Home").navigationBarHidden(true).navigationBarBackButtonHidden(true)
-        }
-               SettingsView().tabItem {
-                    Image(systemName: "doc.richtext")
-                    Text("Settings").navigationBarHidden(true).navigationBarBackButtonHidden(true)
-                }
-               
-            }
-            
-        }
-    }
+
+
