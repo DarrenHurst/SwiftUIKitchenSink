@@ -19,7 +19,9 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
     @Published var usernameMessage: String = ""
     @Published var passwordMessage: String = ""
     @Published var rememberMe: Bool = false
-
+    @Published var showMain: Bool = false
+    
+    @Published var buttonClicked: Bool = false // button click
     
     private var cancellableSet: Set<AnyCancellable> = []
 
@@ -38,35 +40,86 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
              }
              .assign(to: \.passwordMessage, on: self)
              .store(in: &cancellableSet)
-      
+        
+        
+        validLogin.receive(on: RunLoop.main)
+             .assign(to: \.buttonClicked, on: self)
+             .store(in: &cancellableSet)
       
         
     }
     
     public var isUsernameValidPublisher: AnyPublisher<Bool, Never> {
        $username
-         .debounce(for: 0.8, scheduler: RunLoop.main)
+         .debounce(for: 0.2, scheduler: RunLoop.main)
          .removeDuplicates()
          .map { input in
            return input.count >= 3
+         }
+         .eraseToAnyPublisher()
+     }
+
+    public var isPasswordValidPublisher: AnyPublisher<Bool, Never> {
+       $password
+         .debounce(for: 0.2, scheduler: RunLoop.main)
+         .removeDuplicates()
+         .map { input in
+           return input.count >= 3
+         }
+         .eraseToAnyPublisher()
+     }
+    public var isButtonClicked: AnyPublisher<Bool, Never> {
+       $buttonClicked
+         .debounce(for: 0.2, scheduler: RunLoop.main)
+         .removeDuplicates()
+        .map { value in
+            return value
          }
          .eraseToAnyPublisher()
      }
     
-    public var isPasswordValidPublisher: AnyPublisher<Bool, Never> {
-       $password
-         .debounce(for: 0.8, scheduler: RunLoop.main)
-         .removeDuplicates()
-         .map { input in
-           return input.count >= 3
-         }
-         .eraseToAnyPublisher()
-     }
+    private var validLogin: AnyPublisher<Bool, Never> {
+        return Publishers.CombineLatest3(isUsernameValidPublisher, isPasswordValidPublisher, isButtonClicked)
+            .map { username, password, buttonClicked in
+                if (!buttonClicked) {
+                    return username && password && buttonClicked
+                }
+                else {
+                        self.processLogin()
+                    }
+            return username && password && buttonClicked
+        }.eraseToAnyPublisher()
+    }
+
+    
+    private func isValidTransform<P: Publisher>(input: P) -> some Publisher where P.Output == Bool {
+        input
+            .debounce(for: 0.8, scheduler: RunLoop.main)
+            .removeDuplicates()
+           
+    }
    
+    func processLogin()  {
+        if !self.showMain {
+        if  username == "Test" && password == "abcd"  {
+            showMain = true
+        }
+        else {
+            buttonClicked = false
+        }
+        }
+ 
+        
+    }
    
 }
 
+
+
+
+
 class LoginService: NSURLConnection {
     var response = "LOL IT WORKED"
+    
 }
     

@@ -13,7 +13,6 @@ struct LoginFormView: View {
     var bounce: Animation = Animation.default.repeatCount(5).speed(3)
     @State var offset: CGFloat = 0.0
     @State var selection: Int? = nil
-    @State var showMain: Bool = false
     
     var body: some View {
         
@@ -33,18 +32,17 @@ struct LoginFormView: View {
             .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
             .padding(5.0)
             
-           
-            NavigationLink(destination: MainView(), isActive: $showMain) {}
+            
+            
+            
+            NavigationLink(destination: MainView(), isActive: $login.showMain ) {}
             
                 Button("Login",action: { // Process login
                   //Validate
-                  
-                    if login.passwordMessage.count >= 5{
-                     clearPassword()
-                  } else {
-                    self.showMain = true
-                   
-                  }
+                    login.buttonClicked = true
+                    if !login.showMain {
+                        clearPassword(model: login) // shows animation
+                   }
                 }).frame(width: 280.0, height: 33.0, alignment: .center)
             .padding(5.0)
             .background(Color.green)
@@ -69,11 +67,13 @@ struct LoginFormView: View {
           
     }
     
-    func clearPassword() {
+    func clearPassword(model: LoginViewModel) {
+        if !model.showMain {
         offset = 20
         DispatchQueue.main.asyncAfter(
             deadline: .now() + 0.5) {
             offset = 0
+        }
         }
     }
         
