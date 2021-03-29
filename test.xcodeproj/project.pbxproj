@@ -20,6 +20,8 @@
 		EB857179260FB02F0005FA32 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB857178260FB02F0005FA32 /* SettingView.swift */; };
 		EB857182260FB0870005FA32 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB857181260FB0870005FA32 /* LoginViewModelProtocol.swift */; };
 		EB857189260FB0ED0005FA32 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB857188260FB0ED0005FA32 /* UIScreen.swift */; };
+		EB85718E2611445E0005FA32 /* LoginViewModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85718D2611445E0005FA32 /* LoginViewModelService.swift */; };
+		EB8571962612093D0005FA32 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8571952612093D0005FA32 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		EB857178260FB02F0005FA32 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		EB857181260FB0870005FA32 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
 		EB857188260FB0ED0005FA32 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
+		EB85718D2611445E0005FA32 /* LoginViewModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelService.swift; sourceTree = "<group>"; };
+		EB8571952612093D0005FA32 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4C697C260533CE0037244A /* LoginFormView.swift */,
+				EB8571952612093D0005FA32 /* CircleImage.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 		EB4C69C62607ED6B0037244A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EB85718D2611445E0005FA32 /* LoginViewModelService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -349,8 +355,10 @@
 				EB4C693A26026A4C0037244A /* testApp.swift in Sources */,
 				EB857179260FB02F0005FA32 /* SettingView.swift in Sources */,
 				EB857189260FB0ED0005FA32 /* UIScreen.swift in Sources */,
+				EB85718E2611445E0005FA32 /* LoginViewModelService.swift in Sources */,
 				EB1152F1260A2F7100D1FBBA /* HomeView.swift in Sources */,
 				EB4C69D32608CD080037244A /* LoginView.swift in Sources */,
+				EB8571962612093D0005FA32 /* CircleImage.swift in Sources */,
 				EB857182260FB0870005FA32 /* LoginViewModelProtocol.swift in Sources */,
 				EB4C696826051DFB0037244A /* LoginViewModel.swift in Sources */,
 			);

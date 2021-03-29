@@ -9,31 +9,36 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        ZStack (alignment: .leading) {
-                  
-            Rectangle()
-                .fill(Color.gray)
-             .frame(width:UIScreen.screenWidth, height: UIScreen.screenHeight-350.0)
-                .shadow(color: .black, radius: 0, x: 1, y: 1).padding(15.0)
-        VStack.init(alignment: .leading, spacing: 1.0, content: {
-            Image("me")
-                .resizable()
-                .scaledToFit()
-                .mask(Circle.init())
-                .frame(width:100.0, height: 100.0, alignment: .leading)
-                .fixedSize(horizontal: true, vertical: true)
-                //.padding(20.0)
-                //.shadow(color: .white, radius: 2, x: 4, y: 4).padding(15.0)
-             
+        VStack {
+            Rectangle().offset(y: -57)
+                .frame(width: 300, height: 200, alignment: .leading).foregroundColor(.green)
+               
+            
+            Divider().border(Color.black, width: 60).offset(y: -65)
+        CircleImage(image: "me")
+            .offset(y: -180)
+            .padding(.bottom, -180)
+            
+        VStack(alignment: .leading) {
+            
+          
+              Text("Darren Hurst")
+            .font(.title)
+            .bold()
+            .foregroundColor(Color.black)
         
-
-            Text("Darren Hurst").font(.headline).bold().padding(2.0)
-            Text("TD iOS Banking Mobile Team Lead").font(.subheadline).foregroundColor(Color.white).padding(2.0)
-            Divider().foregroundColor(Color.white).background(Color.white)
-        
-        }).padding(20.0)
-        .frame(height:250.0)
+        Text("TD iOS Banking Mobile Team Lead")
+                .font(.subheadline)
+                .foregroundColor(Color.black)
+        }
             
         }
     }
 }
+    
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
+}
+

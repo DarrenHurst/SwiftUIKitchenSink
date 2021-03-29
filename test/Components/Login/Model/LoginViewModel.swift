@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 import Combine
 
+
+struct Response: Codable {
+    var results: [LoginViewModelService]
+}
 public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
  
     //Protocol
@@ -22,9 +26,9 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
     @Published var showMain: Bool = false
     
     @Published var buttonClicked: Bool = false // button click
+
     
     private var cancellableSet: Set<AnyCancellable> = []
-
     init() {
         
         isUsernameValidPublisher.receive(on: RunLoop.main)
@@ -46,7 +50,6 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
              .assign(to: \.buttonClicked, on: self)
              .store(in: &cancellableSet)
       
-        
     }
     
     public var isUsernameValidPublisher: AnyPublisher<Bool, Never> {
@@ -90,18 +93,14 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
             return username && password && buttonClicked
         }.eraseToAnyPublisher()
     }
-
     
-    private func isValidTransform<P: Publisher>(input: P) -> some Publisher where P.Output == Bool {
-        input
-            .debounce(for: 0.8, scheduler: RunLoop.main)
-            .removeDuplicates()
-           
-    }
+    
    
     func processLogin()  {
+        
+        
         if !self.showMain {
-        if  username == "Test" && password == "abcd"  {
+            if  username == "Test" && password == "abcd" {
             showMain = true
         }
         else {
@@ -116,10 +115,4 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
 
 
 
-
-
-class LoginService: NSURLConnection {
-    var response = "LOL IT WORKED"
-    
-}
     
