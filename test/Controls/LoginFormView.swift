@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct LoginFormView: View {
-    @ObservedObject private var login = LoginViewModel.shared
-    
     var bounce: Animation = Animation.default.repeatCount(5).speed(3)
     @State var offset: CGFloat = 0.0
     @State var selection: Int? = nil
+
+    @ObservedObject var formModel: FormModel
     
+
     var body: some View {
-        
+      
         VStack.init(alignment: .center, spacing: 1.0, content: {
             
             Text("Username").padding(5.0).frame(width: 280.0, height: 30,alignment: .leading)
             
-            TextField("Enter a Username", text: $login.username)
+            TextField("Enter a Username", text: $formModel.username)
                 .padding(5.0).frame(width: 280, height: 30,alignment: .leading)
            
             Text("Password").frame(width: 180, height: 30.0, alignment: .leading).padding(5.0).frame(width: 280, height: 30,alignment: .leading)
-               
             
-            SecureField("Enter a password", text: $login.password).frame(width: 280, height: 30,alignment: .leading)
+            
+            SecureField("Enter a password", text: $formModel.password).frame(width: 280, height: 30,alignment: .leading)
             .offset(x: offset)  // amount to "shake"
             .animation(offset != 0 ? bounce:nil)
             .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
@@ -34,14 +35,13 @@ struct LoginFormView: View {
             
             
             
-            
-            NavigationLink(destination: MainView(), isActive: $login.showMain ) {}
+            NavigationLink(destination: MainView(), isActive: $formModel.showMain ) {}
             
                 Button("Login",action: { // Process login
                   //Validate
-                    login.buttonClicked = true
-                    if !login.showMain {
-                        clearPassword(model: login) // shows animation
+                    formModel.buttonClicked = true
+                    if !formModel.showMain {
+                        clearPassword() // shows animation
                    }
                 }).frame(width: 280.0, height: 33.0, alignment: .center)
             .padding(5.0)
@@ -51,7 +51,7 @@ struct LoginFormView: View {
                 .font(.callout)
                 
             
-            Toggle("Remember Me", isOn: $login.rememberMe).padding(8).font(.footnote) .padding(10.0)
+            Toggle("Remember Me", isOn: $formModel.rememberMe).padding(8).font(.footnote) .padding(10.0)
            
             
         }).frame(width: 310.0, height: 250.0, alignment: .top)
@@ -60,15 +60,11 @@ struct LoginFormView: View {
         .cornerRadius(5.0)
         .padding(15.0)
         
-        
-        TextField(login.passwordMessage, text:$login.passwordMessage).foregroundColor(.red).padding(5).font(.footnote).frame(width: 280.0, height: 33.0, alignment: .topLeading).position(x: 185.0, y: -20.0)
-        
-        TextField(login.usernameMessage, text:$login.usernameMessage).foregroundColor(.red).padding(5).font(.footnote).frame(width: 280.0, height: 33.0, alignment: .topLeading).position(x: 185.0, y: -90.0)
-          
+       
     }
     
-    func clearPassword(model: LoginViewModel) {
-        if !model.showMain {
+    func clearPassword() {
+        if !formModel.showMain {
         offset = 20
         DispatchQueue.main.asyncAfter(
             deadline: .now() + 0.5) {

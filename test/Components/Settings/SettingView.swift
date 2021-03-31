@@ -13,8 +13,6 @@ struct SettingsView: View {
             Rectangle().offset(y: -57)
                 .frame(width: 300, height: 200, alignment: .leading).foregroundColor(.green)
                
-            
-            Divider().border(Color.black, width: 60).offset(y: -65)
         CircleImage(image: "me")
             .offset(y: -180)
             .padding(.bottom, -180)

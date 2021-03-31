@@ -10,69 +10,70 @@ import SwiftUI
 import Combine
 
 
-struct Response: Codable {
-    var results: [LoginViewModelService]
-}
-public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
- 
-    //Protocol
-    @Published var username: String = ""
-    @Published var password: String = ""
-    static var shared: LoginViewModel = LoginViewModel()
-    
-    @Published var usernameMessage: String = ""
-    @Published var passwordMessage: String = ""
+class FormModel: ObservableObject, Identifiable {
+    @Published var username: String
+    @Published var password: String
+    @Published var usernameMessage: String
+    @Published var passwordMessage:  String
     @Published var rememberMe: Bool = false
     @Published var showMain: Bool = false
+    @Published var buttonClicked: Bool = false
     
-    @Published var buttonClicked: Bool = false // button click
-
+ 
+    public var disposables: Set<AnyCancellable>
     
-    private var cancellableSet: Set<AnyCancellable> = []
     init() {
+        self.disposables = Set<AnyCancellable>()
+        self.username = ""
+        self.password = ""
+        self.usernameMessage =  ""
+        self.passwordMessage = ""
+        
+        self.rememberMe = false
+        self.showMain = false
+        self.buttonClicked = false
         
         isUsernameValidPublisher.receive(on: RunLoop.main)
              .map { valid in
                valid ? "" : "User name must at least have 3 characters"
              }
-             .assign(to: \.usernameMessage, on: self)
-             .store(in: &cancellableSet)
+            .assign(to: \.usernameMessage, on: self)
+            .store(in: &disposables)
         
         isPasswordValidPublisher.receive(on: RunLoop.main)
              .map { valid in
                valid ? "" : "Password must at least have 3 characters"
              }
-             .assign(to: \.passwordMessage, on: self)
-             .store(in: &cancellableSet)
+            .assign(to: \.passwordMessage, on: self)
+            .store(in: &disposables)
         
         
-        validLogin.receive(on: RunLoop.main)
-             .assign(to: \.buttonClicked, on: self)
-             .store(in: &cancellableSet)
-      
+       validLogin.receive(on: RunLoop.main)
+            .assign(to: \.buttonClicked, on: self)
+            .store(in: &disposables)
     }
     
     public var isUsernameValidPublisher: AnyPublisher<Bool, Never> {
-       $username
+        $username
          .debounce(for: 0.2, scheduler: RunLoop.main)
          .removeDuplicates()
          .map { input in
-           return input.count >= 3
+            return input.count >= 3
          }
          .eraseToAnyPublisher()
      }
 
     public var isPasswordValidPublisher: AnyPublisher<Bool, Never> {
-       $password
+        $password
          .debounce(for: 0.2, scheduler: RunLoop.main)
          .removeDuplicates()
          .map { input in
-           return input.count >= 3
+            return input.count >= 3
          }
          .eraseToAnyPublisher()
      }
     public var isButtonClicked: AnyPublisher<Bool, Never> {
-       $buttonClicked
+        $buttonClicked
          .debounce(for: 0.2, scheduler: RunLoop.main)
          .removeDuplicates()
         .map { value in
@@ -94,23 +95,44 @@ public class LoginViewModel: ObservableObject, LoginViewModelProtocol {
         }.eraseToAnyPublisher()
     }
     
-    
-   
-    func processLogin()  {
-        
-        
-        if !self.showMain {
-            if  username == "Test" && password == "abcd" {
-            showMain = true
-        }
-        else {
+     func processLogin()  {
+         
+         
+         if !showMain {
+             if  username == "Test" && password == "abcd" {
+                 showMain = true
+         }
+         else {
             buttonClicked = false
-        }
-        }
- 
-        
+         }
+         }
+  
+         
+     }
+    
+}
+
+final class LoginViewModel {
+    
+    @ObservedObject var formModel: FormModel
+    
+    private var cancellableSet: Set<AnyCancellable> = []
+    init() {
+        self.formModel = FormModel()
     }
+
    
+ /*   func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, Error> {
+      let decoder = JSONDecoder()
+      decoder.dateDecodingStrategy = .secondsSince1970
+
+      return Just(data)
+        .decode(type: T.self, decoder: decoder)
+        .mapError { error in
+            return error
+        }
+        .eraseToAnyPublisher()
+    }*/
 }
 
 

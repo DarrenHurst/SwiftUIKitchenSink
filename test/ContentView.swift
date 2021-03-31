@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
 
 struct ContentView: View {
+
+    @ObservedObject var formModel: FormModel
     var body: some View {
-        
+       
         NavigationView {
-            LoginView()
+            LoginView(formModel: formModel)
         }.navigationTitle("").navigationBarHidden(true)
         
         
@@ -20,7 +23,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @ObservedObject var formModel: FormModel
     static var previews: some View {
-        ContentView()
+        ContentView(formModel: FormModel())
     }
 }
