@@ -37,7 +37,13 @@ struct HomeView: View {
     var body: some View {
         VStack.init() {
             List {
-                Text("TEXT")
+                DashboardButton(text: "Accounts", action: {
+                    NSLog("Accounst")
+                })
+                DashboardButton(text: "TD MySpend",action: {
+                    NSLog("TD My Spend")
+                })
+               
                 TextField("TEXTFIELD", text: $model.textField)
                 SecureField("SECUREFIELD", text: $model.secureField)
                 TextEditor(text: $model.textEditor)
@@ -64,6 +70,9 @@ struct HomeView: View {
     }
 }
 
+func LogAction(text: String){
+    NSLog(text)
+}
 struct showPicker : View {
     @ObservedObject private var model = testModel.shared
     @Environment(\.presentationMode) var presentationMode
