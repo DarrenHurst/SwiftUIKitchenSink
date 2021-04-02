@@ -9,41 +9,47 @@ import Combine
 
 protocol DashboardButtonProtocol {
     var text: String { get set }
-    func onAction() -> Void
+    var height: CGFloat { get set }
+    func onAction() -> ()
 }
 struct DashboardButton: View, DashboardButtonProtocol
 {
-    var text: String
+    func onAction() -> () {
+        
+    }
     
-    func onAction() {}
+    var text: String
+    var height: CGFloat
 
-    init(text: String, action: @escaping () -> Void) {
+    init(text: String, height: CGFloat, onAction: @escaping () -> ()) {
         self.text = text
+        self.height = height
     }
     
     var body: some View {
-        let margin = 15
-        let offset_padding = margin * 4
+        let margin = 10
         Button(action: onAction, label: {
             Text(text)
-                .offset(x: -(UIScreen.screenWidth / 2) + CGFloat(offset_padding))
                 .foregroundColor(.black)
                 .font(.TDStandardFont)
-                .frame(minHeight: 80, alignment:.leading)
+                .frame(width:UIScreen.screenWidth, alignment:.leading)
+                .padding(EdgeInsets(top: 20, leading: 80, bottom: 20, trailing: CGFloat(margin)))
                 .background(
                     Rectangle()
                         .fill(Color.white)
-                        .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: 100,  alignment: .center)
+                        .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: height,  alignment: .topLeading
+                        )
                         .cornerRadius(5.0)
                         .padding(EdgeInsets(top: CGFloat(margin), leading: CGFloat(margin), bottom: CGFloat(margin), trailing: CGFloat(margin)))
                         .scaledToFit()
                 )
                 .opacity(0.8)
-                .padding(EdgeInsets(top: CGFloat(margin), leading: CGFloat(margin), bottom: CGFloat(margin), trailing: CGFloat(margin)))
-                .frame(maxWidth: UIScreen.screenWidth)
+                .frame(width: UIScreen.screenWidth, height: height)
             
             
-        }).frame(maxWidth: UIScreen.screenWidth, alignment: .leading)
+        }).background(Color.TDLightGray)
+        .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading
+        )
      
         
     
@@ -52,6 +58,6 @@ struct DashboardButton: View, DashboardButtonProtocol
 
 struct DashboardButtonPreviews: PreviewProvider {
     static var previews: some View {
-        DashboardButton(text: "Accounts", action: {})
+        DashboardButton(text: "Accounts", height: 88,  onAction: {})
     }
 }

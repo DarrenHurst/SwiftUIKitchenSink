@@ -38,22 +38,16 @@ struct HomeView: View {
         VStack {
             ScrollView {
                 
-               
-                DashboardButton(text: "Accounts", action: {
+                Spacer()
+                
+                DashboardButton(text: "Accounts", height: 88, onAction: {
                     NSLog("Accounts")
                 }).frame(width: UIScreen.screenWidth)
             
-                DashboardButton(text: "TD MySpend", action: {
+                DashboardButton(text: "TD MySpend", height: 88, onAction: {
                     NSLog("TD My Spend")
                 }).frame(width: UIScreen.screenWidth)
-            
-                DashboardButton(text: "TD MySpend", action: {
-                    NSLog("2")
-                }).frame(width: UIScreen.screenWidth)
-            
-                DashboardButton(text: "TD MySpend", action: {
-                    NSLog("4")
-                }).frame(width: UIScreen.screenWidth)
+       
             
                 
                 TextField("TEXTFIELD", text: $model.textField)
@@ -65,11 +59,13 @@ struct HomeView: View {
                     .scaledToFit()
                     .frame(width: 30.0, height: 30.0, alignment: .leading)
                     .fixedSize(horizontal: true, vertical: true)
+                
                 Button("TD Rocks") {
                         //do something
                       pickerOn = true
-                    
                 }.frame(width: 200.0, height: 30.0, alignment: .center)
+                .font(.TDStandardFont)
+                .foregroundColor(.white)
                 .background(Color.blue)
                 .cornerRadius(3.0)
                 .popover(isPresented: $pickerOn, content: {
