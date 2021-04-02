@@ -35,15 +35,27 @@ struct HomeView: View {
     @State var pickerOn: Bool = false
     
     var body: some View {
-        VStack.init() {
-            List {
-                DashboardButton(text: "Accounts", action: {
-                    NSLog("Accounst")
-                })
-                DashboardButton(text: "TD MySpend",action: {
-                    NSLog("TD My Spend")
-                })
+        VStack {
+            ScrollView {
+                
                
+                DashboardButton(text: "Accounts", action: {
+                    NSLog("Accounts")
+                }).frame(width: UIScreen.screenWidth)
+            
+                DashboardButton(text: "TD MySpend", action: {
+                    NSLog("TD My Spend")
+                }).frame(width: UIScreen.screenWidth)
+            
+                DashboardButton(text: "TD MySpend", action: {
+                    NSLog("2")
+                }).frame(width: UIScreen.screenWidth)
+            
+                DashboardButton(text: "TD MySpend", action: {
+                    NSLog("4")
+                }).frame(width: UIScreen.screenWidth)
+            
+                
                 TextField("TEXTFIELD", text: $model.textField)
                 SecureField("SECUREFIELD", text: $model.secureField)
                 TextEditor(text: $model.textEditor)
@@ -64,9 +76,14 @@ struct HomeView: View {
                     showPicker()
                 })
     
-            }
+            }.background(Color.TDLightGray).padding(EdgeInsets(top: CGFloat(-3), leading: CGFloat(0), bottom: CGFloat(0), trailing: CGFloat(0)))
                
-        }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top) .background(Color.black)
+        }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top).background(
+            Rectangle()
+                .fill(Color.white)
+                .frame(width: UIScreen.screenWidth , height: UIScreen.screenHeight,  alignment: .center)
+                      .scaledToFit()
+        )
     }
 }
 

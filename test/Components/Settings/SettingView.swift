@@ -9,28 +9,25 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack {
+        VStack.init(alignment: .center, spacing: 1.0, content: {
             Rectangle().offset(y: -57)
-                .frame(width: 300, height: 200, alignment: .leading).foregroundColor(.green)
+                .frame(width: UIScreen.screenWidth, height: 200, alignment: .leading).foregroundColor(.green)
                
         CircleImage(image: "me")
             .offset(y: -180)
             .padding(.bottom, -180)
             
         VStack(alignment: .leading) {
-            
-          
               Text("Darren Hurst")
-            .font(.title)
-            .bold()
             .foregroundColor(Color.black)
-        
+            .font(Font.TDStandardFont)
+            
         Text("TD iOS Banking Mobile Team Lead")
-                .font(.subheadline)
                 .foregroundColor(Color.black)
+            .font(Font.TDTickerFont)
         }
             
-        }
+        })
     }
 }
     

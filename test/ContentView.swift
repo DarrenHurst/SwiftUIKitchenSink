@@ -16,7 +16,7 @@ struct ContentView: View {
        
         NavigationView {
             LoginView(formModel: formModel)
-        }.navigationTitle("").navigationBarHidden(true)
+        }.navigationTitle("").navigationBarHidden(true).background(Color.TDLightGray)
         
         
     }

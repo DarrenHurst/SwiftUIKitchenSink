@@ -83,11 +83,12 @@ struct LoginFormView: View {
                 HomeView().tabItem {
             Image(systemName: "heart.fill")
             Text("Home").navigationBarHidden(true).navigationBarBackButtonHidden(true)
-        }
+                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
+                
                SettingsView().tabItem {
                     Image(systemName: "doc.richtext")
                     Text("Settings").navigationBarHidden(true).navigationBarBackButtonHidden(true)
-                }
+               }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
                
             }
             

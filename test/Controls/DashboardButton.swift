@@ -22,26 +22,29 @@ struct DashboardButton: View, DashboardButtonProtocol
     }
     
     var body: some View {
-      
-        Button( action: onAction, label: {
+        let margin = 15
+        let offset_padding = margin * 4
+        Button(action: onAction, label: {
             Text(text)
-                .frame(maxWidth: UIScreen.screenWidth, alignment: .leading)
-                .cornerRadius(5.0)
-                .offset(x:25)
-                .foregroundColor(Color.black)
-                .scaledToFill()
-                .font(.subheadline)
+                .offset(x: -(UIScreen.screenWidth / 2) + CGFloat(offset_padding))
+                .foregroundColor(.black)
+                .font(.TDStandardFont)
+                .frame(minHeight: 80, alignment:.leading)
                 .background(
                     Rectangle()
-                        .fill(Color.gray)
+                        .fill(Color.white)
+                        .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: 100,  alignment: .center)
                         .cornerRadius(5.0)
-                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                        .frame(maxWidth: UIScreen.screenWidth, maxHeight: 88.0, alignment: .leading)
-                        .scaledToFill()
-                ).opacity(0.8)
+                        .padding(EdgeInsets(top: CGFloat(margin), leading: CGFloat(margin), bottom: CGFloat(margin), trailing: CGFloat(margin)))
+                        .scaledToFit()
+                )
+                .opacity(0.8)
+                .padding(EdgeInsets(top: CGFloat(margin), leading: CGFloat(margin), bottom: CGFloat(margin), trailing: CGFloat(margin)))
+                .frame(maxWidth: UIScreen.screenWidth)
             
-        }).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        .scaledToFill()
+            
+        }).frame(maxWidth: UIScreen.screenWidth, alignment: .leading)
+     
         
     
     }

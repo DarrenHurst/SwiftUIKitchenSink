@@ -21,7 +21,7 @@ public struct LoginView: View {
         VStack.init(alignment: .leading, spacing: 1.0, content: {
                 Image("Logo").frame(width: 320.0, height: 50.0, alignment: .center).padding(25.0)
             LoginFormView(formModel: formModel).padding(15)
-            Text("Username: Test Password: abce").foregroundColor(.black).padding(5).font(.footnote).frame(width: 280.0, height: 33.0, alignment: .topLeading).position(x: 185.0, y: 0.0)
+            Text("Username: Test Password: abcd").foregroundColor(.black).padding(5).font(.footnote).frame(width: 280.0, height: 33.0, alignment: .topLeading).position(x: 185.0, y: 0.0)
             TextField(formModel.passwordMessage, text:$formModel.passwordMessage).foregroundColor(.red).padding(5).font(.footnote).frame(width: 280.0, height: 33.0, alignment: .topLeading).position(x: 185.0, y: -20.0)
             Spacer()
             TextField(formModel.usernameMessage, text:$formModel.usernameMessage).foregroundColor(.red).padding(5).font(.footnote).frame(width: 280.0, height: 33.0, alignment: .topLeading).position(x: 185.0, y: -57.0)
