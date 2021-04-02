@@ -8,12 +8,12 @@ import SwiftUI
 import Combine
 
 protocol DashboardButtonProtocol {
-    var text: String! { get set }
+    var text: String { get set }
     func onAction() -> Void
 }
 struct DashboardButton: View, DashboardButtonProtocol
 {
-    var text: String!
+    var text: String
     
     func onAction() {}
 
