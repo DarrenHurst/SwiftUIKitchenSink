@@ -76,21 +76,3 @@ struct LoginFormView: View {
       
 }
 
-// MainView Tab bar
-    struct MainView: View {
-        var body: some View {
-            TabView{
-                HomeView().tabItem {
-            Image(systemName: "heart.fill")
-            Text("Home").navigationBarHidden(true).navigationBarBackButtonHidden(true)
-                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
-                
-               SettingsView().tabItem {
-                    Image(systemName: "doc.richtext")
-                    Text("Settings").navigationBarHidden(true).navigationBarBackButtonHidden(true)
-               }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
-               
-            }
-            
-        }
-    }

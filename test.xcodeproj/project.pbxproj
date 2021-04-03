@@ -25,6 +25,7 @@
 		EBB6A1B526160C94007993B0 /* DashboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1B426160C94007993B0 /* DashboardButton.swift */; };
 		EBB6A1BA26173DB3007993B0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1B926173DB3007993B0 /* Color.swift */; };
 		EBB6A1BF26173E09007993B0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1BE26173E09007993B0 /* Font.swift */; };
+		EBB6A1C42617D553007993B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1C32617D553007993B0 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		EBB6A1B426160C94007993B0 /* DashboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardButton.swift; sourceTree = "<group>"; };
 		EBB6A1B926173DB3007993B0 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EBB6A1BE26173E09007993B0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		EBB6A1C32617D553007993B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				EB4C6971260533810037244A /* Controls */,
 				EB4C693926026A4C0037244A /* testApp.swift */,
 				EB4C693B26026A4C0037244A /* ContentView.swift */,
+				EBB6A1C32617D553007993B0 /* MainView.swift */,
 				EB4C693D26026A4D0037244A /* Assets.xcassets */,
 				EB4C694226026A4D0037244A /* Info.plist */,
 				EB4C693F26026A4D0037244A /* Preview Content */,
@@ -372,6 +375,7 @@
 				EBB6A1B526160C94007993B0 /* DashboardButton.swift in Sources */,
 				EB4C69D32608CD080037244A /* LoginView.swift in Sources */,
 				EB8571962612093D0005FA32 /* CircleImage.swift in Sources */,
+				EBB6A1C42617D553007993B0 /* MainView.swift in Sources */,
 				EB4C696826051DFB0037244A /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

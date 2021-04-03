@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class testModel: ObservableObject {
-   @Published var textField: String = ""
+    @Published var textField: String = ""
     @Published var secureField: String = ""
     @Published var textEditor: String = ""
     @Published var toggleField: Bool = false
@@ -35,51 +35,26 @@ struct HomeView: View {
     @State var pickerOn: Bool = false
     
     var body: some View {
-        VStack {
-            ScrollView {
-                
-                Spacer()
-                
-                DashboardButton(text: "Accounts", height: 88, onAction: {
-                    NSLog("Accounts")
-                }).frame(width: UIScreen.screenWidth)
-            
-                DashboardButton(text: "TD MySpend", height: 88, onAction: {
-                    NSLog("TD My Spend")
-                }).frame(width: UIScreen.screenWidth)
        
+        
+        ScrollView {
+            Rectangle().fill(Color.green).frame(width: UIScreen.screenWidth, height: 120, alignment: .top).offset(y:-20)
+            DashboardButton(text: "Accounts", height: 55, onClick: {}).frame(width: UIScreen.screenWidth)
+        
+            DashboardButton(text: "TD MySpend", height: 55, onClick: {}).frame(width: UIScreen.screenWidth)
+        
+            TextField("TEXTFIELD", text: $model.textField)
+            SecureField("SECUREFIELD", text: $model.secureField)
+            TextEditor(text: $model.textEditor)
+            Toggle("TOGGLE", isOn:$model.toggleField)
+            Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30.0, height: 30.0, alignment: .leading)
+                .fixedSize(horizontal: true, vertical: true)
             
-                
-                TextField("TEXTFIELD", text: $model.textField)
-                SecureField("SECUREFIELD", text: $model.secureField)
-                TextEditor(text: $model.textEditor)
-                Toggle("TOGGLE", isOn:$model.toggleField)
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30.0, height: 30.0, alignment: .leading)
-                    .fixedSize(horizontal: true, vertical: true)
-                
-                Button("TD Rocks") {
-                        //do something
-                      pickerOn = true
-                }.frame(width: 200.0, height: 30.0, alignment: .center)
-                .font(.TDStandardFont)
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(3.0)
-                .popover(isPresented: $pickerOn, content: {
-                    showPicker()
-                })
-    
-            }.background(Color.TDLightGray).padding(EdgeInsets(top: CGFloat(-3), leading: CGFloat(0), bottom: CGFloat(0), trailing: CGFloat(0)))
-               
-        }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top).background(
-            Rectangle()
-                .fill(Color.white)
-                .frame(width: UIScreen.screenWidth , height: UIScreen.screenHeight,  alignment: .center)
-                      .scaledToFit()
-        )
+
+        }.background(Color.TDLightGray)
     }
 }
 

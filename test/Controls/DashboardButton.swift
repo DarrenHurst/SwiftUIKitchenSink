@@ -10,25 +10,27 @@ import Combine
 protocol DashboardButtonProtocol {
     var text: String { get set }
     var height: CGFloat { get set }
-    func onAction() -> ()
+    func onClick() -> ()
 }
 struct DashboardButton: View, DashboardButtonProtocol
 {
-    func onAction() -> () {
-        
+    func onClick() {
+        NSLog(self.text)
+        // do something
     }
     
     var text: String
     var height: CGFloat
 
-    init(text: String, height: CGFloat, onAction: @escaping () -> ()) {
+    init(text: String, height: CGFloat, onClick: @escaping () -> ()) {
         self.text = text
         self.height = height
+        onClick()
     }
     
     var body: some View {
         let margin = 10
-        Button(action: onAction, label: {
+        Button(action:{ onClick() }, label: {
             Text(text)
                 .foregroundColor(.black)
                 .font(.TDStandardFont)
@@ -47,9 +49,9 @@ struct DashboardButton: View, DashboardButtonProtocol
                 .frame(width: UIScreen.screenWidth, height: height)
             
             
-        }).background(Color.TDLightGray)
-        .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading
-        )
+        })
+        .background(Color.TDLightGray)
+        .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading)
      
         
     
@@ -58,6 +60,9 @@ struct DashboardButton: View, DashboardButtonProtocol
 
 struct DashboardButtonPreviews: PreviewProvider {
     static var previews: some View {
-        DashboardButton(text: "Accounts", height: 88,  onAction: {})
+        DashboardButton(text: "Accounts", height: 88) {
+            //something
+            return
+        }
     }
 }
