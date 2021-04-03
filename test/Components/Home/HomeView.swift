@@ -38,7 +38,23 @@ struct HomeView: View {
        
         
         ScrollView {
-            Rectangle().fill(Color.green).frame(width: UIScreen.screenWidth, height: 120, alignment: .top).offset(y:-20)
+            LazyVStack {
+            Rectangle().fill(Color.green).frame(width: UIScreen.screenWidth, height: 140, alignment: .top).offset(y:-20)
+            Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30.0, height: 30.0, alignment: .leading)
+                .offset(y:-130)
+                .fixedSize(horizontal: true, vertical: true)
+                
+                let item: ButtonItem = ButtonItem(image:"mail", description_key: "Contact Us")
+                let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Settings")
+                ButtonNav(items: [item,item2]).offset(y:-175)
+                
+            }.frame( alignment: .top)
+            
+            LazyVStack {
+            
             DashboardButton(text: "Accounts", height: 55, onClick: {}).frame(width: UIScreen.screenWidth)
         
             DashboardButton(text: "TD MySpend", height: 55, onClick: {}).frame(width: UIScreen.screenWidth)
@@ -47,12 +63,7 @@ struct HomeView: View {
             SecureField("SECUREFIELD", text: $model.secureField)
             TextEditor(text: $model.textEditor)
             Toggle("TOGGLE", isOn:$model.toggleField)
-            Image("Logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30.0, height: 30.0, alignment: .leading)
-                .fixedSize(horizontal: true, vertical: true)
-            
+            }.offset(y:-189)
 
         }.background(Color.TDLightGray)
     }
