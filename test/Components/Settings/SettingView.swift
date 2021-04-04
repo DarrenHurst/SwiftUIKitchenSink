@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack.init(alignment: .center, spacing: 1.0, content: {
+        VStack.init(alignment: .center, spacing: nil, content: {
             Rectangle().offset(y: -57)
                 .frame(width: UIScreen.screenWidth, height: 200, alignment: .leading).foregroundColor(.green)
                

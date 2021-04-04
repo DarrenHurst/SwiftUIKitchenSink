@@ -35,7 +35,7 @@ struct ButtonNav: ButtonNavProtocol, View {
                 })
             }
         }.background(Color.green).frame(width: UIScreen.screenWidth, height: 100, alignment: .leading)
-        .padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing:20))
+        //.padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing:20))
     }
 }
 

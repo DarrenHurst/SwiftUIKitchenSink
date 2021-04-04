@@ -29,41 +29,88 @@ var id: String { self.rawValue }
 }
 
 
+protocol HeaderProtocol: View {
+    var infoClicked: Bool {get set}
+}
 
-
+struct HeaderView: View, HeaderProtocol {
+    @State var infoClicked: Bool = false
+    
+    init(click: Bool) {
+        self.infoClicked = click
+    }
+    
+    var body: some View {
+    
+    let columns = [
+   GridItem(.flexible(minimum:30)),
+   GridItem(.flexible(minimum:30)),
+   GridItem(.flexible(minimum:30))
+  ]
+    VStack {
+        NavigationLink(destination: SettingsView(), isActive:$infoClicked, label:{})
+     
+    LazyVGrid(columns: columns, content: {
+      
+                Button(action:{ infoClicked = true  },
+                       label: {
+            Image(systemName: "text.justify")
+        })
+    .foregroundColor(Color.white)
+    .frame(width: 50, height: 50, alignment: .leading)
+ 
+    
+    Image("Logo")
+      .resizable()
+        .frame(width: 33, height: 35, alignment: .center).fixedSize().fixedSize(horizontal: true, vertical: true)
+ 
+      
+    Button(action: {
+            
+            self.infoClicked = true
+    
+                }) {
+                Image(systemName: "info")
+                    .foregroundColor(.white).frame(width: 50.0, height: 50.0, alignment: .center)
+    }
+        
+    }).frame(height:70)
+    }.frame(height: 100, alignment: .center)
+        
+    
+    }
+}
 struct HomeView: View {
     
     @ObservedObject private var model = testModel.shared
     
     @State var pickerOn: Bool = false
-    @State var infoClicked = false
+    @State var infoClicked: Bool = false
+    
+    let item: ButtonItem = ButtonItem(image:"mail", description_key: "Accounts")
+    let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Transfers")
+    let item3: ButtonItem = ButtonItem(image:"slider.horizontal.3", description_key: "Pay Bills")
     
     var body: some View {
+    
         
-        HStack(alignment: .center, spacing: 0, content: {
-           
-        VStack.init(alignment:.leading, spacing: 0, content: {
-            HeaderView(infoClicked: infoClicked).frame(width: UIScreen.screenWidth, height: 50, alignment: .center)
+        NavigationView {
+            VStack {
+                HeaderView(click: infoClicked).frame(height:88).offset(y:15)
+                    ButtonNav(items: [item,item2,item3])
+                        .frame(height:80,alignment:.top).padding(EdgeInsets(top: 10, leading: 25, bottom: 0, trailing: 0)).offset(y:-20)
+                
+                                   
             ScrollView {
-                
-                
-                        
-                            let item: ButtonItem = ButtonItem(image:"mail", description_key: "Accounts")
-                            let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Transfers")
-                            let item3: ButtonItem = ButtonItem(image:"slider.horizontal.3", description_key: "Pay Bills")
-                    ButtonNav(items: [item,item2,item3]).frame(width: UIScreen.screenWidth, height: 80, alignment: .top).offset(y:-34).background(Color.green)
-                
-            
-            
-                DashboardButton(text: "Accounts", height: 65, onClick: {}).frame(width: UIScreen.screenWidth) .background(Color.TDLightGray).padding(5)
-            
-                DashboardButton(text: "TD MySpend", height: 65, onClick: {})
+                DashboardButton(text: "Accounts", height: 65, onClick: {}).padding(2)
+                       
+                DashboardButton(text: "TD MySpend", height: 65, onClick: {}).padding(2)
                     .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
-                
-            }.background(Color.TDLightGray)
-        }).frame(width: UIScreen.screenWidth, alignment: .center)
-      })
+            }.frame(height:UIScreen.screenHeight - 175).background(Color.TDLightGray)
+            }.background(Color.green).navigationBarHidden(true)
+        }
     }
+    
 }
 
 func LogAction(text: String){
@@ -98,45 +145,4 @@ static var previews: some View {
 }
 }
 
-
-struct HeaderView: View {
-    @State var infoClicked:Bool = false
-    
-    init(infoClicked: Bool){}
-  
-    var body: some View {
-        
-        let columns = [
-       GridItem(.flexible(minimum:30)),
-       GridItem(.flexible(minimum:30)),
-       GridItem(.flexible(minimum:30))
-      ]
-        NavigationLink(destination: SettingsView().navigationTitle(""), isActive: $infoClicked ) { }
-        LazyVGrid(columns: columns, content: {
-          
-                    Button(action:{ self.infoClicked = true  },
-                           label: {
-                Image(systemName: "text.justify")
-            })
-        .foregroundColor(Color.white)
-        .frame(width: 50, height: 50, alignment: .leading)
-     
-        
-        Image("Logo")
-          .resizable()
-            .frame(width: 33, height: 35, alignment: .center).fixedSize().fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-     
-          
-        Button(action: {
-                self.infoClicked = true
-                    }) {
-                    Image(systemName: "info")
-                        .foregroundColor(.white).frame(width: 50.0, height: 50.0, alignment: .center)
-        }
-        
-            
-        }).background(Color.green)
-        .frame(minHeight:50, alignment: .center).offset(x: 5)
-    }
-}
 
