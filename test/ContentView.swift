@@ -13,18 +13,18 @@ struct ContentView: View {
 
     @ObservedObject var formModel: FormModel
     var body: some View {
-       
         NavigationView {
-            LoginView(formModel: formModel)
-        }.navigationTitle("").navigationBarHidden(true).background(Color.TDLightGray)
-        
-        
+              HomeView()
+            }.navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @ObservedObject var formModel: FormModel
     static var previews: some View {
-        ContentView(formModel: FormModel())
-    }
+         HomeView().navigationBarTitle("")
+            .navigationBarHidden(true)
+       }
 }
+
+
