@@ -30,19 +30,21 @@ struct DashboardButton: View, DashboardButtonProtocol
     
     var body: some View {
         let margin = 10
+        VStack.init(alignment: .leading, spacing: 0, content: {
+            
+        
         Button(action:{ onClick() }, label: {
             Text(text)
+                .frame(alignment:.leading)
                 .foregroundColor(.black)
                 .font(.TDStandardFont)
-                .frame(width:UIScreen.screenWidth, alignment:.leading)
-                .padding(EdgeInsets(top: 20, leading: 80, bottom: 20, trailing: CGFloat(margin)))
                 .background(
                     Rectangle()
                         .fill(Color.white)
                         .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: height,  alignment: .topLeading
                         )
                         .cornerRadius(5.0)
-                        .padding(EdgeInsets(top: CGFloat(margin), leading: CGFloat(margin), bottom: CGFloat(margin), trailing: CGFloat(margin)))
+                        .padding(EdgeInsets(top: 0, leading: CGFloat(margin), bottom: 0, trailing: CGFloat(margin)))
                         .scaledToFit()
                 )
                 .opacity(0.8)
@@ -53,7 +55,7 @@ struct DashboardButton: View, DashboardButtonProtocol
         .background(Color.TDLightGray)
         .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading)
      
-        
+        }).padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     
     }
 }

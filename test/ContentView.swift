@@ -13,10 +13,7 @@ struct ContentView: View {
 
     @ObservedObject var formModel: FormModel
     var body: some View {
-        NavigationView {
-              HomeView()
-            }.navigationBarTitle("")
-        .navigationBarHidden(true)
+        HomeView().frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .topLeading).ignoresSafeArea(.all).background(Color.green).offset(y:-5)
     }
 }
 
