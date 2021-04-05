@@ -107,7 +107,9 @@ struct HomeView: View {
                 DashboardButton(text: "TD MySpend", height: 65, onClick: {}).padding(2)
                     .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
             }.frame(height:UIScreen.screenHeight - 175).background(Color.TDLightGray)
-            }.background(Color.green).navigationBarHidden(true)
+            }
+            .background( LinearGradient(gradient: Gradient(colors: [.green, .black]), startPoint: .top, endPoint: .bottom))
+            .navigationBarHidden(true)
         }
     }
     

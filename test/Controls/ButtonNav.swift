@@ -28,13 +28,13 @@ struct ButtonNav: ButtonNavProtocol, View {
                     .fixedSize(horizontal: true, vertical: true)
                         .background(Circle()
                                         .fill(Color.green)
-                                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                        .overlay(Circle().stroke(Color.white, lineWidth: 3))
                                         .frame(alignment:.center).padding(4))
                     Text(item.description_key).font(.TDSmall).foregroundColor(.white)
                  }
                 })
             }
-        }.background(Color.green).frame(width: UIScreen.screenWidth, height: 100, alignment: .leading)
+        }.frame(width: UIScreen.screenWidth, height: 100, alignment: .leading)
         //.padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing:20))
     }
 }
