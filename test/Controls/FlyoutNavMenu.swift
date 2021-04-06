@@ -33,11 +33,9 @@ struct FlyoutNavMenu: View {
         let items:[FlyoutNavMenuItem] = [item,item2,item3]
         let navItems:[ButtonItem] = [navitem]
         VStack(alignment: .leading) {
-            VStack {
-          
-                ButtonNav(items: navItems).frame(alignment: .leading).padding(.top,60).padding(.bottom,20).padding(.leading,75)
-                    
-            }.background(Color.blue).offset(x:-35)
+            VStack(alignment: .leading){
+                ButtonNav(items: navItems).padding(.leading,60).padding(.top,60).padding(.bottom,20)
+            }.background(Color.blue)
             VStack {
                 VStack(alignment: .leading)  {
                 ForEach(items, id: \.self) { item in
@@ -48,23 +46,23 @@ struct FlyoutNavMenu: View {
                         Text(item.title)
                             .foregroundColor(.black)
                             .font(.TDSmall)
-                            .frame(width:200, alignment:.leading)
+                            .frame(alignment:.leading)
                        
-                    }
-                }.padding(.top,10).background(Color.white)
+                    }.frame(alignment:.center)
+                }.padding(.top,15).background(Color.white)
                     Divider()
                 }
-            }.frame( height: 40, alignment: .leading).frame( height:200,
-                                                                       alignment: .leading)
+            }.frame(alignment: .leading).padding(.leading,20)
+            
                 Spacer().background(Color.white)
          
-                
+                    
        
         
-        }.frame(width:200, height:UIScreen.screenHeight, alignment: .leading)
+        }.frame(width:140,height:UIScreen.screenHeight, alignment: .leading)
         .background(Color.white)
         .edgesIgnoringSafeArea(.all)
-        .padding(.leading,64)
+        .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
     
     }
     

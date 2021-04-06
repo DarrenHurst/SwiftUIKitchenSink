@@ -48,8 +48,8 @@ struct HomeView: View {
         HStack {
            
             if(self.showMenu) {
-                FlyoutNavMenu().frame(width: 180).gesture(drag)
-            }
+                FlyoutNavMenu().frame(width: 70, alignment: .leading).gesture(drag).offset(x:-25)
+                     }
         NavigationView {
             VStack {
                
@@ -72,7 +72,8 @@ struct HomeView: View {
             .navigationBarHidden(true)
             
            
-        }
+        }.offset(x: self.showMenu ? 100 : 0)
+        .disabled(self.showMenu ? true : false)
        
             
         }
