@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB1152F1260A2F7100D1FBBA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1152F0260A2F7100D1FBBA /* HomeView.swift */; };
+		EB478202261B90F500A7D671 /* FlyoutNavMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */; };
 		EB4C693A26026A4C0037244A /* testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C693926026A4C0037244A /* testApp.swift */; };
-		EB4C693C26026A4C0037244A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C693B26026A4C0037244A /* ContentView.swift */; };
 		EB4C693E26026A4D0037244A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4C693D26026A4D0037244A /* Assets.xcassets */; };
 		EB4C694126026A4D0037244A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4C694026026A4D0037244A /* Preview Assets.xcassets */; };
 		EB4C694C26026A4D0037244A /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C694B26026A4D0037244A /* testTests.swift */; };
@@ -25,7 +24,9 @@
 		EBB6A1B526160C94007993B0 /* DashboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1B426160C94007993B0 /* DashboardButton.swift */; };
 		EBB6A1BA26173DB3007993B0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1B926173DB3007993B0 /* Color.swift */; };
 		EBB6A1BF26173E09007993B0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1BE26173E09007993B0 /* Font.swift */; };
-		EBB6A1C42617D553007993B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB6A1C32617D553007993B0 /* MainView.swift */; };
+		EBE8843D261BAB730035CE93 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1152F0260A2F7100D1FBBA /* HomeView.swift */; };
+		EBE88492261CB3BE0035CE93 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE88491261CB3BE0035CE93 /* HeaderView.swift */; };
+		EBE8849C261CB6750035CE93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C693B26026A4C0037244A /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +48,10 @@
 
 /* Begin PBXFileReference section */
 		EB1152F0260A2F7100D1FBBA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyoutNavMenu.swift; sourceTree = "<group>"; };
 		EB4C693626026A4C0037244A /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4C693926026A4C0037244A /* testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testApp.swift; sourceTree = "<group>"; };
-		EB4C693B26026A4C0037244A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB4C693B26026A4C0037244A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = test/ContentView.swift; sourceTree = SOURCE_ROOT; wrapsLines = 0; };
 		EB4C693D26026A4D0037244A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB4C694026026A4D0037244A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB4C694226026A4D0037244A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 		EBB6A1B426160C94007993B0 /* DashboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardButton.swift; sourceTree = "<group>"; };
 		EBB6A1B926173DB3007993B0 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EBB6A1BE26173E09007993B0 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		EBB6A1C32617D553007993B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EBE88491261CB3BE0035CE93 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +137,6 @@
 				EB4C6971260533810037244A /* Controls */,
 				EB4C693926026A4C0037244A /* testApp.swift */,
 				EB4C693B26026A4C0037244A /* ContentView.swift */,
-				EBB6A1C32617D553007993B0 /* MainView.swift */,
 				EB4C693D26026A4D0037244A /* Assets.xcassets */,
 				EB4C694226026A4D0037244A /* Info.plist */,
 				EB4C693F26026A4D0037244A /* Preview Content */,
@@ -176,6 +177,8 @@
 				EB8571952612093D0005FA32 /* CircleImage.swift */,
 				EBB6A1AF26160C28007993B0 /* ButtonNav.swift */,
 				EBB6A1B426160C94007993B0 /* DashboardButton.swift */,
+				EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */,
+				EBE88491261CB3BE0035CE93 /* HeaderView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -362,20 +365,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB4C693C26026A4C0037244A /* ContentView.swift in Sources */,
 				EB4C697D260533CE0037244A /* LoginFormView.swift in Sources */,
 				EBB6A1BF26173E09007993B0 /* Font.swift in Sources */,
 				EB4C693A26026A4C0037244A /* testApp.swift in Sources */,
 				EB857179260FB02F0005FA32 /* SettingView.swift in Sources */,
 				EBB6A1BA26173DB3007993B0 /* Color.swift in Sources */,
+				EBE88492261CB3BE0035CE93 /* HeaderView.swift in Sources */,
 				EB857189260FB0ED0005FA32 /* UIScreen.swift in Sources */,
+				EBE8849C261CB6750035CE93 /* ContentView.swift in Sources */,
 				EBB6A1B026160C28007993B0 /* ButtonNav.swift in Sources */,
 				EB85718E2611445E0005FA32 /* LoginViewModelService.swift in Sources */,
-				EB1152F1260A2F7100D1FBBA /* HomeView.swift in Sources */,
 				EBB6A1B526160C94007993B0 /* DashboardButton.swift in Sources */,
+				EB478202261B90F500A7D671 /* FlyoutNavMenu.swift in Sources */,
 				EB4C69D32608CD080037244A /* LoginView.swift in Sources */,
 				EB8571962612093D0005FA32 /* CircleImage.swift in Sources */,
-				EBB6A1C42617D553007993B0 /* MainView.swift in Sources */,
+				EBE8843D261BAB730035CE93 /* HomeView.swift in Sources */,
 				EB4C696826051DFB0037244A /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

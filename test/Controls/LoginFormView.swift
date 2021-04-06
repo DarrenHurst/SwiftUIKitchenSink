@@ -11,7 +11,7 @@ struct LoginFormView: View {
     var bounce: Animation = Animation.default.repeatCount(5).speed(3)
     @State var offset: CGFloat = 0.0
     @State var selection: Int? = nil
-
+    @Binding var showMenu: Bool 
     @ObservedObject var formModel: FormModel
     
 
@@ -34,8 +34,7 @@ struct LoginFormView: View {
             .padding(5.0)
             
             
-            
-            NavigationLink(destination: MainView(), isActive: $formModel.showMain ) {}
+            NavigationLink(destination: HomeView(), isActive: $formModel.showMain ) {}
             
                 Button("Login",action: { // Process login
                   //Validate

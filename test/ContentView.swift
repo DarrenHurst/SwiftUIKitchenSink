@@ -10,18 +10,20 @@ import Combine
 
 
 struct ContentView: View {
-
-    @ObservedObject var formModel: FormModel
     var body: some View {
-        HomeView().frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .topLeading).ignoresSafeArea(.all).background(Color.green).navigationBarTitle("")
-            .navigationBarHidden(true)
+        VStack {
+            HomeView()
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
+ 
     static var previews: some View {
-         HomeView().navigationBarTitle("")
-            .navigationBarHidden(true)
+        ContentView()
+      //  HomeView(showMenu: .constant(false)).navigationBarTitle("")
+        //    .navigationBarHidden(true)
        }
 }
 
