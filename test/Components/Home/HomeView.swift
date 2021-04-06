@@ -48,7 +48,7 @@ struct HomeView: View {
         HStack {
            
             if(self.showMenu) {
-                FlyoutNavMenu().frame(width: UIScreen.screenWidth/2).gesture(drag)
+                FlyoutNavMenu().frame(width: 180).gesture(drag)
             }
         NavigationView {
             VStack {
