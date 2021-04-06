@@ -31,14 +31,24 @@ struct HomeView: View {
     @State var flyoutMenu: Bool = false
     @State var showMenu: Bool = false
     
+   
     let item: ButtonItem = ButtonItem(image:"mail", description_key: "Accounts")
     let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Transfers")
     let item3: ButtonItem = ButtonItem(image:"slider.horizontal.3", description_key: "Pay Bills")
 
     var body: some View {
+        let drag = DragGesture()
+                    .onEnded {
+                        if $0.translation.width < -100 {
+                            withAnimation {
+                                self.showMenu = false
+                            }
+                        }
+                    }
         HStack {
+           
             if(self.showMenu) {
-                FlyoutNavMenu().frame(width: UIScreen.screenWidth/2)
+                FlyoutNavMenu().frame(width: UIScreen.screenWidth/2).gesture(drag)
             }
         NavigationView {
             VStack {

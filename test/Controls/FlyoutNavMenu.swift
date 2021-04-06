@@ -22,7 +22,7 @@ struct FlyoutNavMenuItem: Hashable {
 struct FlyoutNavMenu: View {
     
     var body: some View {
-    
+     
          
                 let item:FlyoutNavMenuItem = FlyoutNavMenuItem(title: "Accounts", systemName: "person")
                 

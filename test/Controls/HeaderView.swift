@@ -50,7 +50,7 @@ struct HeaderView: View {
         
     }).frame(height:70)
        
-    }.frame(height: 100, alignment: .center)
+    }.frame(width:UIScreen.screenWidth, height: 100, alignment: .center)
         
       
     }

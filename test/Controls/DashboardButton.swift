@@ -32,10 +32,11 @@ struct DashboardButton: View, DashboardButtonProtocol
         let margin = 10
         VStack.init(alignment: .leading, spacing: 0, content: {
             
-        
+            HStack {
         Button(action:{ onClick() }, label: {
             Text(text)
-                .frame(alignment:.leading)
+                .frame(width:UIScreen.screenWidth, alignment:.leading)
+                .padding(.leading, 60)
                 .foregroundColor(.black)
                 .font(.TDStandardFont)
                 .background(
@@ -47,6 +48,7 @@ struct DashboardButton: View, DashboardButtonProtocol
                         .padding(EdgeInsets(top: 0, leading: CGFloat(margin), bottom: 0, trailing: CGFloat(margin)))
                         .scaledToFit()
                 )
+               
                 .opacity(0.8)
                 .frame(width: UIScreen.screenWidth, height: height)
             
@@ -54,8 +56,8 @@ struct DashboardButton: View, DashboardButtonProtocol
         })
         .background(Color.TDLightGray)
         .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading)
-     
-        }).padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            }.frame(alignment:.leading)
+        }).padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
     
     }
 }
