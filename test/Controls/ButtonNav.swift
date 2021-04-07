@@ -24,7 +24,7 @@ struct ButtonNav: ButtonNavProtocol, View {
                 Button(action:{ NSLog("Add Action")  }, label: {
                  VStack {
                     Image(systemName: item.image)
-                        .frame(width: 50.0, height: 50.0, alignment: .center).foregroundColor(.white)
+                        .frame(width: 60.0, height: 60.0, alignment: .center).foregroundColor(.white)
                     .fixedSize(horizontal: true, vertical: true)
                         .background(Circle()
                                         .fill(Color.green)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB164E97261DD40B009E4BCC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164E96261DD40B009E4BCC /* TabBar.swift */; };
 		EB478202261B90F500A7D671 /* FlyoutNavMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */; };
 		EB4C693A26026A4C0037244A /* testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C693926026A4C0037244A /* testApp.swift */; };
 		EB4C693E26026A4D0037244A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4C693D26026A4D0037244A /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		EB1152F0260A2F7100D1FBBA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EB164E96261DD40B009E4BCC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyoutNavMenu.swift; sourceTree = "<group>"; };
 		EB4C693626026A4C0037244A /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4C693926026A4C0037244A /* testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testApp.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				EBB6A1B426160C94007993B0 /* DashboardButton.swift */,
 				EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */,
 				EBE88491261CB3BE0035CE93 /* HeaderView.swift */,
+				EB164E96261DD40B009E4BCC /* TabBar.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				EBB6A1BA26173DB3007993B0 /* Color.swift in Sources */,
 				EBE88492261CB3BE0035CE93 /* HeaderView.swift in Sources */,
 				EB857189260FB0ED0005FA32 /* UIScreen.swift in Sources */,
+				EB164E97261DD40B009E4BCC /* TabBar.swift in Sources */,
 				EBE8849C261CB6750035CE93 /* ContentView.swift in Sources */,
 				EBB6A1B026160C28007993B0 /* ButtonNav.swift in Sources */,
 				EB85718E2611445E0005FA32 /* LoginViewModelService.swift in Sources */,

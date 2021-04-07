@@ -72,12 +72,12 @@ struct HomeView: View {
             .navigationBarHidden(true)
             
            
-        }.offset(x: self.showMenu ? 100 : 0)
+        }.offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0).padding(.leading,self.showMenu ? 40 : 0)
         .disabled(self.showMenu ? true : false)
        
-            
+          
         }
-        
+    
     }
     
 }

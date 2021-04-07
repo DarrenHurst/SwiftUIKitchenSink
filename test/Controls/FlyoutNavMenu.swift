@@ -34,8 +34,8 @@ struct FlyoutNavMenu: View {
         let navItems:[ButtonItem] = [navitem]
         VStack(alignment: .leading) {
             VStack(alignment: .leading){
-                ButtonNav(items: navItems).padding(.leading,60).padding(.top,60).padding(.bottom,20)
-            }.background(Color.blue)
+                ButtonNav(items: navItems).padding(.leading,70).padding(.top,60).padding(.bottom,20)
+            }.background( LinearGradient(gradient: Gradient(colors: [.black, .green]), startPoint: .top, endPoint: .bottom))
             VStack {
                 VStack(alignment: .leading)  {
                 ForEach(items, id: \.self) { item in
