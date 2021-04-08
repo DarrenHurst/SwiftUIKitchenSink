@@ -24,7 +24,7 @@ struct TDtabBar: View {
                 
                         Button(action: {
                             
-                        withAnimation(.spring()){
+                        withAnimation(.interactiveSpring()){
                         index = 0
                             self.curvePos = g.frame(in: .global).midX
                         }
@@ -38,7 +38,7 @@ struct TDtabBar: View {
                 .frame(width:32, height:32)
                         .padding(.all, 15)
                         .background(Color.white.opacity(index == 0 ? 1 : 0)).clipShape(Circle())
-                        .offset(y: index == 0 ? -35 :0)
+                        .offset(y: index == 0 ? -15 :0)
                         
                 })
                     }.frame(width: 43, height: 43)
@@ -59,7 +59,7 @@ struct TDtabBar: View {
                         VStack {
                     
                             Button(action: {
-                        withAnimation(.spring()){
+                        withAnimation(.interactiveSpring()){
                             index = 1
                             self.curvePos = g.frame(in: .global).midX
                         }
@@ -72,7 +72,7 @@ struct TDtabBar: View {
                     .frame(width:32, height:32)
                             .padding(.all, 15)
                             .background(Color.white.opacity(index == 1 ? 1 : 0)).clipShape(Circle())
-                            .offset(y: index == 1 ? -35 :0)
+                            .offset(y: index == 1 ? -15 :0)
                             
                     })
                         }.frame(width: 43, height: 43)
@@ -83,6 +83,7 @@ struct TDtabBar: View {
                         }
                 
                 }).frame(width: 43, height: 43)
+                    
                     Spacer(minLength: 0)
                 
                     GeometryReader(content: { g in
@@ -90,7 +91,7 @@ struct TDtabBar: View {
                         VStack {
                     
                             Button(action: {
-                        withAnimation(.spring()){
+                        withAnimation(.interactiveSpring()){
                             index = 2
                             self.curvePos = g.frame(in: .global).midX
                         }
@@ -105,7 +106,7 @@ struct TDtabBar: View {
                     .frame(width:48, height:48)
                             .padding(.all, 15)
                             .background(Color.white.opacity(index == 2 ? 2 : 0)).clipShape(Circle())
-                            .offset(y: index == 2 ? -35 :0)
+                            .offset(y: index == 2 ? -15 :0)
                                                })
                         }.frame(width: 43, height: 43)
                         .onAppear {
@@ -124,7 +125,7 @@ struct TDtabBar: View {
                         VStack {
                     
                             Button(action: {
-                        withAnimation(.spring()){
+                        withAnimation(.interactiveSpring()){
                             index = 3
                             self.curvePos = g.frame(in: .global).midX
                         }
@@ -137,7 +138,7 @@ struct TDtabBar: View {
                     .frame(width:32, height:32)
                             .padding(.all, 15)
                             .background(Color.white.opacity(index == 3 ? 1 : 0)).clipShape(Circle())
-                            .offset(y: index == 3 ? -35 :0)
+                            .offset(y: index == 3 ? -15 :0)
                            
                     })
                         }.frame(width: 43, height: 43)
@@ -148,6 +149,7 @@ struct TDtabBar: View {
                         }
                 
                 }).frame(width: 43, height: 43)
+                    
                     Spacer(minLength: 0)
                 
                     GeometryReader(content: { g in
@@ -155,7 +157,7 @@ struct TDtabBar: View {
                         VStack {
                     
                             Button(action: {
-                        withAnimation(.spring()){
+                                withAnimation(.interactiveSpring()){
                             index = 4
                             self.curvePos = g.frame(in: .global).midX
                         }
@@ -169,7 +171,7 @@ struct TDtabBar: View {
                     .frame(width:32, height:32)
                             .padding(.all, 15)
                             .background(Color.white.opacity(index == 4 ? 1 : 0)).clipShape(Circle())
-                            .offset(y: index == 4 ? -35 :0)
+                            .offset(y: index == 4 ? -15 :0)
                             
                     })
                         }.frame(width: 43, height: 43)
@@ -191,11 +193,8 @@ struct TDtabBar: View {
         }).edgesIgnoringSafeArea(.all)
         .background(Color.white)
         .frame(width: UIScreen.screenWidth)
-    
-            
-            
+        
     }
-    
 }
 
 
@@ -203,7 +202,7 @@ struct CShape: Shape {
     @Binding var curvePos: CGFloat
     func path(in rect: CGRect) -> Path {
         return Path { path in
-                            path.move(to: CGPoint(x: 0, y:0))
+       /*                     path.move(to: CGPoint(x: 0, y:0))
                            path.addLine(to: CGPoint(x: 0, y: rect.height))
                            path.addLine(to: CGPoint(x: rect.width, y: rect.height))
             path.addLine(to: CGPoint(x: rect.width, y: 0))
@@ -212,8 +211,8 @@ struct CShape: Shape {
             path.move(to:CGPoint(x:curvePos + 30, y:0))
                       
             path.addQuadCurve(to: CGPoint(x: curvePos - 30, y: 0), control: CGPoint(x:curvePos, y: 70))
+        */
         }
-        
     }
 }
 

@@ -8,32 +8,33 @@ import SwiftUI
 import Combine
 
 protocol DashboardButtonProtocol {
+ 
     var text: String { get set }
     var height: CGFloat { get set }
-    func onClick() -> ()
+    func onClick() -> Void
 }
+
+
 struct DashboardButton: View, DashboardButtonProtocol
 {
-    func onClick() {
-        NSLog(self.text)
-        // do something
-    }
     
     var text: String
     var height: CGFloat
-
-    init(text: String, height: CGFloat, onClick: @escaping () -> ()) {
-        self.text = text
-        self.height = height
-        onClick()
-    }
+    func onClick() {}
+    
+    @State var index: Int = 0
+    @State var showAccount: Bool = false
     
     var body: some View {
         let margin = 10
+     
+        
         VStack.init(alignment: .leading, spacing: 0, content: {
             
             HStack {
-        Button(action:{ onClick() }, label: {
+                NavigationLink("Accounts", destination: SettingsView(), isActive: $showAccount).frame(height:0)
+                Button(action:{
+                        self.showAccount =  true}, label: {
             Text(text)
                 .frame(width:UIScreen.screenWidth, alignment:.leading)
                 .padding(.leading, 60)
@@ -64,9 +65,6 @@ struct DashboardButton: View, DashboardButtonProtocol
 
 struct DashboardButtonPreviews: PreviewProvider {
     static var previews: some View {
-        DashboardButton(text: "Accounts", height: 88) {
-            //something
-            return
-        }
+        DashboardButton(text: "Accounts", height: 88, index: 0)
     }
 }

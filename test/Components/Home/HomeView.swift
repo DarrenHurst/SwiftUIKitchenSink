@@ -59,9 +59,9 @@ struct HomeView: View {
                 
                                    
             ScrollView {
-                DashboardButton(text: "Accounts", height: 65, onClick: {}).padding(2)
+                DashboardButton(text: "Accounts", height: 65).padding(2)
                        
-                DashboardButton(text: "TD MySpend", height: 65, onClick: {}).padding(2)
+                DashboardButton(text: "TD MySpend", height: 65).padding(2)
                     .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
             }.frame(height:UIScreen.screenHeight - 175).background(Color.TDLightGray)
                 
