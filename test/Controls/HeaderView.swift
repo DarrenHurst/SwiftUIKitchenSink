@@ -14,8 +14,8 @@ struct HeaderView: View {
     
     let columns = [
         GridItem(.flexible(minimum:30)),
-   GridItem(.flexible(minimum:30)),
-   GridItem(.flexible(minimum:30))
+        GridItem(.flexible(minimum:30)),
+        GridItem(.flexible(minimum:30))
     ]
         
     VStack {
@@ -52,13 +52,12 @@ struct HeaderView: View {
        
     }.frame(width:UIScreen.screenWidth, height: 100, alignment: .center)
         
-      
     }
 }
 
 
 struct HeaderViewPreview: PreviewProvider {
 static var previews: some View {
-    HeaderView(infoClicked: .constant(false), showMenu: .constant(false))
+    HeaderView(infoClicked: .constant(false), showMenu: .constant(false)).background(Color.gray)
 }
 }

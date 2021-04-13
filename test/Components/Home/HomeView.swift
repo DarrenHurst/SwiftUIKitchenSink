@@ -59,21 +59,26 @@ struct HomeView: View {
                 
                                    
             ScrollView {
-                DashboardButton(text: "Accounts", height: 65).padding(2)
-                       
-                DashboardButton(text: "TD MySpend", height: 65).padding(2)
-                    .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
-            }.frame(height:UIScreen.screenHeight - 175).background(Color.TDLightGray)
+                VStack.init(alignment: .center, spacing: nil, content: {
+                    DashboardButton(text: "Accounts", height: 65).padding(0)
+                    DashboardButton(text: "TD MySpend", height: 65).padding(0)
+                        .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
+                })
+               
+            }.frame(height:UIScreen.screenHeight - 180).background(Color.TDLightGray)
                 
                
                 
             }
-            .background( LinearGradient(gradient: Gradient(colors: [.green, .black]), startPoint: .top, endPoint: .bottom))
+            .background(LinearGradient.TDGreenTOBlack)
             .navigationBarHidden(true)
             
            
-        }.offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0).padding(.leading,self.showMenu ? 40 : 0)
+        }
+        .offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0)
+        .padding(.leading,self.showMenu ? 40 : 0)
         .disabled(self.showMenu ? true : false)
+       
        
           
         }

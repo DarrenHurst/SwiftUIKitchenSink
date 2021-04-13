@@ -16,7 +16,12 @@ extension Font {
     public static var TDSmall: Font {
         return Font.custom("HelveticaNeue", size: 12)
     }
-    
+    public static var TDMedium: Font {
+        return Font.custom("HelveticaNeue", size: 18)
+    }
+    public static var TDLarge: Font {
+        return Font.custom("HelveticaNeue", size: 22)
+    }
     public static var TDStandardFont: Font {
         return Font.custom("HelveticaNeue", size: 12)
     }

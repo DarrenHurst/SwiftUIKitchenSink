@@ -27,29 +27,34 @@ struct DashboardButton: View, DashboardButtonProtocol
     
     var body: some View {
         let margin = 10
-     
+       
+        
         
         VStack.init(alignment: .leading, spacing: 0, content: {
             
             HStack {
-                NavigationLink("Accounts", destination: SettingsView(), isActive: $showAccount).frame(height:0)
-                Button(action:{
-                        self.showAccount =  true}, label: {
+               
+                    
+                Button(action:{ self.showAccount =  true}, label: {
             Text(text)
                 .frame(width:UIScreen.screenWidth, alignment:.leading)
                 .padding(.leading, 60)
                 .foregroundColor(.black)
                 .font(.TDStandardFont)
                 .background(
-                    Rectangle()
-                        .fill(Color.white)
-                        .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: height,  alignment: .topLeading
-                        )
-                        .cornerRadius(5.0)
-                        .padding(EdgeInsets(top: 0, leading: CGFloat(margin), bottom: 0, trailing: CGFloat(margin)))
-                        .scaledToFit()
+                    
+                    NavigationLink(
+                        destination: Accounts(),
+                        label: {
+                            Rectangle()
+                                .fill(Color.white)
+                                .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: height,  alignment: .topLeading
+                                )
+                                .cornerRadius(5.0)
+                                .padding(EdgeInsets(top: 0, leading: CGFloat(margin), bottom: 0, trailing: CGFloat(margin)))
+                                .scaledToFit()
+                        })
                 )
-               
                 .opacity(0.8)
                 .frame(width: UIScreen.screenWidth, height: height)
             
@@ -58,6 +63,7 @@ struct DashboardButton: View, DashboardButtonProtocol
         .background(Color.TDLightGray)
         .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading)
             }.frame(alignment:.leading)
+            
         }).padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
     
     }

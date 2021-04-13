@@ -24,7 +24,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
  
     static var previews: some View {
-        ContentView()
+        ContentView().buttonStyle(BorderlessButtonStyle())
       //  HomeView(showMenu: .constant(false)).navigationBarTitle("")
         //    .navigationBarHidden(true)
        }
