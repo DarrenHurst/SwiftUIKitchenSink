@@ -8,10 +8,18 @@
 import Foundation
 import SwiftUI
 
-struct Accounts: View {
-    
-    @State var info: Bool = false
+
+// protocols force unwrapped variables are optional
+// passing any will generate a warning
+// protocols define the contract.
+protocol AccountsProtocol{
+    var info: Bool! {get set}
+    var menu: Bool {get set}
+}
+struct Accounts: View, AccountsProtocol {
+    @State var info: Bool! = false
     @State var menu: Bool = false
+    @State var accountDetailRoute: Bool = false
     
     var body: some View {
         let items: [ButtonItem] = [
@@ -23,58 +31,54 @@ struct Accounts: View {
         HStack.init(content: {
             VStack {
             VStack.init(alignment: .center, content:  {
-            
-                
-                Text("ACCOUNT: STAFF ACCOUNT")
-                    .foregroundColor(Color.white)
-                    .font(Font.TDLarge).padding(.bottom, 15)
-                Text("Balance: $3244.33")
-                    .foregroundColor(Color.white)
-                    .font(Font.TDLarge).padding(.bottom, 15)
-                        
                 ButtonNav(items: items)
                     .frame(height:75, alignment: .center)
                     .padding(.leading, CGFloat(offsetWidth))
                 .frame(width: UIScreen.screenWidth, height: 80, alignment: .top)
                 
-                FlatMenuBar { () -> Void? in
-                    NSLog("Action1")
-                } action2: { () -> Void? in
-                    return
-                } action3: { () -> Void? in
-                    return
-                }
-                
             })
             .padding(.top, 100)
-            .frame(height:400)
+            .padding(.bottom,20)
+            .frame(height:100)
             .background(Color.green)
-          Spacer()
-            
+      
             ScrollView {
                 List {
                     VStack {
-                        Text("April 8, 2021").font(.TDLarge)
+                        Text("Cash Accounts").font(.TDLarge)
                     }
                     VStack {
                         HStack {
-                            Text("PETRO CANADA").font(.TDSmall)
+                            Text("Staff Account").font(.TDMedium)
                             Spacer()
                             Text("-23.55").padding(.trailing, 50).padding(.top, 15)
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                     VStack {
                         HStack {
-                            Text("PAYROLL").font(.TDSmall)
-                            Spacer()
-                            Text("1623.55").padding(.trailing, 50).padding(.top, 15).foregroundColor(.green)
+                            NavigationLink(
+                                destination: AccountDetails(),
+                                isActive: $accountDetailRoute,
+                                label: {
+                                    Button(action: {
+                                        self.accountDetailRoute = true
+                                        self.accountDetailRoute = false
+                                    }, label: {
+                                        HStack {
+                                        Text("TD Visa").font(.TDMedium)
+                                        Spacer()
+                                        Text("1623.55").padding(.trailing,20).padding(.top, 15)
+                                    }
+                                    })
+                                })
                         }
-                    }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
+                    }.frame(width: UIScreen.screenWidth, alignment: .top)
                     VStack {
                         HStack {
-                            Text("PETRO CANADA").font(.TDSmall)
+                            Text("Get an Account").font(.TDMedium).foregroundColor(Color.TDDarkGray)
+                                .padding(.top, 6)
                             Spacer()
-                            Text("-23.55").padding(.trailing, 50).padding(.top, 15)
+                           
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                    
