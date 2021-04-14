@@ -61,7 +61,7 @@ struct HomeView: View {
             ScrollView {
                 VStack.init(alignment: .center, spacing: nil, content: {
                     DashboardButton(text: "Accounts", height: 65).padding(0)
-                    DashboardButton(text: "TD MySpend", height: 65).padding(0)
+                    DashboardButton(text: "Crypto", height: 65).padding(0)
                         .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
                 })
                
@@ -70,7 +70,7 @@ struct HomeView: View {
                
                 
             }
-            .background(LinearGradient.TDGreenTOBlack)
+            .background(Color.blue)
             .navigationBarHidden(true)
             
            

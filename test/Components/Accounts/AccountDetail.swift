@@ -55,7 +55,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
             })
             .padding(.top, 100)
             .frame(height:400)
-            .background(Color.green)
+            .background(Color.blue)
           Spacer()
             
             ScrollView {
@@ -74,7 +74,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
                         HStack {
                             Text("PAYROLL").font(.TDSmall)
                             Spacer()
-                            Text("1623.55").padding(.trailing, 50).padding(.top, 15).foregroundColor(.green)
+                            Text("1623.55").padding(.trailing, 50).padding(.top, 15).foregroundColor(.blue)
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                     VStack {
@@ -85,8 +85,8 @@ struct AccountDetails: View, AccountDetailsProtocol {
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                    
-                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            }.frame(height:500, alignment: .leading).background(Color.red)
+                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+            }.frame(height:500, alignment: .leading)
             
             }
 

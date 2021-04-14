@@ -11,7 +11,7 @@ struct SettingsView: View {
     var body: some View {
         VStack.init(alignment: .center, spacing: nil, content: {
             Rectangle().offset(y: -57)
-                .frame(width: UIScreen.screenWidth, height: 200, alignment: .leading).foregroundColor(.green)
+                .frame(width: UIScreen.screenWidth, height: 200, alignment: .leading).foregroundColor(.gray)
                
         CircleImage(image: "me")
             .offset(y: -180)
@@ -22,7 +22,7 @@ struct SettingsView: View {
             .foregroundColor(Color.black)
             .font(Font.TDStandardFont)
             
-        Text("TD iOS Banking Mobile Team Lead")
+        Text("Something")
                 .foregroundColor(Color.black)
             .font(Font.TDTickerFont)
         }

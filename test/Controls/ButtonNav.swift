@@ -27,7 +27,7 @@ struct ButtonNav: ButtonNavProtocol, View {
                         .frame(width: 60.0, height: 60.0, alignment: .center).foregroundColor(.white)
                     .fixedSize(horizontal: true, vertical: true)
                         .background(Circle()
-                                        .fill(Color.green)
+                                        .fill(Color.blue)
                                         .overlay(Circle().stroke(Color.white, lineWidth: 3))
                                         .frame(alignment:.center).padding(4))
                     Text(item.description_key).font(.TDSmall).foregroundColor(.white)

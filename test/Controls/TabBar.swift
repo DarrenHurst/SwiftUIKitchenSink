@@ -99,6 +99,7 @@ struct TDtabBar: View {
                         
                         Image("Logo")
                           .resizable()
+                            .background(Color.blue)
                             .foregroundColor(index == 2 ? .black : .gray)
                             .frame(width: 48, height: 48, alignment: .center).fixedSize().fixedSize(horizontal: true, vertical: true).mask(Circle())
                      

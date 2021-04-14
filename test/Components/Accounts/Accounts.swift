@@ -40,7 +40,7 @@ struct Accounts: View, AccountsProtocol {
             .padding(.top, 100)
             .padding(.bottom,20)
             .frame(height:100)
-            .background(Color.green)
+            .background(Color.blue)
       
             ScrollView {
                 List {
@@ -65,7 +65,7 @@ struct Accounts: View, AccountsProtocol {
                                         self.accountDetailRoute = false
                                     }, label: {
                                         HStack {
-                                        Text("TD Visa").font(.TDMedium)
+                                        Text("American Express Card").font(.TDMedium)
                                         Spacer()
                                         Text("1623.55").padding(.trailing,20).padding(.top, 15)
                                     }
@@ -83,7 +83,8 @@ struct Accounts: View, AccountsProtocol {
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                    
                 }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            }.frame(height:500, alignment: .leading).background(Color.red)
+                //geometry add here for height..  or possible return UIScreen.fitHeight extension TODO
+            }.frame(alignment: .leading).background(Color.red)
             
             }
 

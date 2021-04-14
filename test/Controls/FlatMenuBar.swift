@@ -14,7 +14,7 @@ struct OffStyle: ViewModifier {
                 .font(.caption)
                 .padding(10)
                 .foregroundColor(Color.white)
-                .background(Color.green)
+                .background(Color.blue)
                 //.border(Color.black, width: 4)
                 .font(.TDLarge)
                 .scaledToFill()
@@ -27,7 +27,7 @@ struct OnStyle: ViewModifier {
                 .font(.caption)
                 .padding(10)
                 .foregroundColor(Color.white)
-                .background(LinearGradient.TDGreenTOWhite)
+                .background(Color.blue)
                 .font(.TDLarge)
                 .scaledToFit()
         }
@@ -64,7 +64,7 @@ struct FlatMenuBar: View {
             Button("MenuItem", action: {
                 action3()
             }).offStyle()
-        }).background(Color.green)
+        }).background(Color.blue)
 
     }
 
