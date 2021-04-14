@@ -55,13 +55,13 @@ struct FlatMenuBar: View {
         ]
     
         LazyVGrid(columns: columns, content: {
-            Button("MenuItem", action: {
+            Button("Summary", action: {
                 action1()
             }).onStyle()
-            Button("MenuItem", action: {
+            Button("Rewards", action: {
                 action2()
             }).offStyle()
-            Button("MenuItem", action: {
+            Button("Manage", action: {
                 action3()
             }).offStyle()
         }).background(Color.blue)
