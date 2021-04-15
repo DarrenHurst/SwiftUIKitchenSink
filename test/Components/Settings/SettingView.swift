@@ -20,11 +20,11 @@ struct SettingsView: View {
         VStack(alignment: .leading) {
               Text("Darren Hurst")
             .foregroundColor(Color.black)
-            .font(Font.TDStandardFont)
+            .font(Font.StandardFont)
             
         Text("Something")
                 .foregroundColor(Color.black)
-            .font(Font.TDTickerFont)
+            .font(Font.TickerFont)
         }
             
         })

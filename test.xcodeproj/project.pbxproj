@@ -13,6 +13,7 @@
 		EB164EAB261F6775009E4BCC /* AccountDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164EAA261F6775009E4BCC /* AccountDetailsHeader.swift */; };
 		EB164EB026235B61009E4BCC /* FlatMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164EAF26235B61009E4BCC /* FlatMenuBar.swift */; };
 		EB478202261B90F500A7D671 /* FlyoutNavMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */; };
+		EB49212626287326009561BF /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49212526287326009561BF /* Router.swift */; };
 		EB4C693A26026A4C0037244A /* testApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C693926026A4C0037244A /* testApp.swift */; };
 		EB4C693E26026A4D0037244A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4C693D26026A4D0037244A /* Assets.xcassets */; };
 		EB4C694126026A4D0037244A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4C694026026A4D0037244A /* Preview Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		EB164EAA261F6775009E4BCC /* AccountDetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsHeader.swift; sourceTree = "<group>"; };
 		EB164EAF26235B61009E4BCC /* FlatMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatMenuBar.swift; sourceTree = "<group>"; };
 		EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyoutNavMenu.swift; sourceTree = "<group>"; };
+		EB49212526287326009561BF /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EB4C693626026A4C0037244A /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4C693926026A4C0037244A /* testApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testApp.swift; sourceTree = "<group>"; };
 		EB4C693B26026A4C0037244A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = test/ContentView.swift; sourceTree = SOURCE_ROOT; wrapsLines = 0; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				EB85718D2611445E0005FA32 /* LoginViewModelService.swift */,
+				EB49212526287326009561BF /* Router.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB49212626287326009561BF /* Router.swift in Sources */,
 				EB4C697D260533CE0037244A /* LoginFormView.swift in Sources */,
 				EBB6A1BF26173E09007993B0 /* Font.swift in Sources */,
 				EB4C693A26026A4C0037244A /* testApp.swift in Sources */,

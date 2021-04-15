@@ -34,10 +34,10 @@ struct AccountDetails: View, AccountDetailsProtocol {
                 
                 Text("ACCOUNT: STAFF ACCOUNT")
                     .foregroundColor(Color.white)
-                    .font(Font.TDLarge).padding(.bottom, 15)
+                    .font(Font.Large).padding(.bottom, 15)
                 Text("Balance: $3244.33")
                     .foregroundColor(Color.white)
-                    .font(Font.TDLarge).padding(.bottom, 15)
+                    .font(Font.Large).padding(.bottom, 15)
                         
                 ButtonNav(items: items)
                     .frame(height:75, alignment: .center)
@@ -61,25 +61,25 @@ struct AccountDetails: View, AccountDetailsProtocol {
             ScrollView {
                 List {
                     VStack {
-                        Text("April 8, 2021").font(.TDLarge)
+                        Text("April 8, 2021").font(.Large)
                     }
                     VStack {
                         HStack {
-                            Text("PETRO CANADA").font(.TDSmall)
+                            Text("PETRO CANADA").font(.Small)
                             Spacer()
                             Text("-23.55").padding(.trailing, 50).padding(.top, 15)
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                     VStack {
                         HStack {
-                            Text("PAYROLL").font(.TDSmall)
+                            Text("PAYROLL").font(.Small)
                             Spacer()
                             Text("1623.55").padding(.trailing, 50).padding(.top, 15).foregroundColor(.blue)
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                     VStack {
                         HStack {
-                            Text("PETRO CANADA").font(.TDSmall)
+                            Text("PETRO CANADA").font(.Small)
                             Spacer()
                             Text("-23.55").padding(.trailing, 50).padding(.top, 15)
                         }
@@ -90,7 +90,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
             
             }
 
-        }).background(Color.TDLightGray)
+        }).background(Color.LightGray)
         .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top).ignoresSafeArea()
         
     

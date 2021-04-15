@@ -13,11 +13,11 @@ import SwiftUI
 // passing any will generate a warning
 // protocols define the contract.
 protocol AccountsProtocol{
-    var info: Bool! {get set}
+    var info: Bool {get set}
     var menu: Bool {get set}
 }
 struct Accounts: View, AccountsProtocol {
-    @State var info: Bool! = false
+    @State var info: Bool = false
     @State var menu: Bool = false
     @State var accountDetailRoute: Bool = false
     
@@ -45,39 +45,43 @@ struct Accounts: View, AccountsProtocol {
             ScrollView {
                 List {
                     VStack {
-                        Text("Cash Accounts").font(.TDLarge)
+                        Text("Cash Accounts").font(.Large)
                     }
                     VStack {
                         HStack {
-                            Text("Staff Account").font(.TDMedium)
+                            Text("Staff Account").font(.Medium)
                             Spacer()
                             Text("-23.55").padding(.trailing, 50).padding(.top, 15)
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                     VStack {
                         HStack {
-                            NavigationLink(
-                                destination: AccountDetails(),
-                                isActive: $accountDetailRoute,
-                                label: {
-                                    Button(action: {
-                                        self.accountDetailRoute = true
-                                        self.accountDetailRoute = false
-                                    }, label: {
-                                        HStack {
-                                        Text("American Express Card").font(.TDMedium)
-                                        Spacer()
-                                        Text("1623.55").padding(.trailing,20).padding(.top, 15)
-                                    }
-                                    })
-                                })
+                         
+                            Router(isActive: $accountDetailRoute, route: AnyView(AccountDetails()), label: {_ in }).hidden()
+                                .frame(width: 0, height: 0)
+                            Button(action: {
+                                self.accountDetailRoute = true
+                            }, label: {
+                                HStack {
+                                Text("American Express Card").font(.Medium).padding(.leading,4-10)
+                                Spacer()
+                                Text("1623.55").padding(.trailing,40).padding(.top, 15)
+                            }
+                            })
                         }
                     }.frame(width: UIScreen.screenWidth, alignment: .top)
+                   
                     VStack {
                         HStack {
-                            Text("Get an Account").font(.TDMedium).foregroundColor(Color.TDDarkGray)
-                                .padding(.top, 6)
-                            Spacer()
+                            
+                            Router(isActive: $info, route: AnyView(SettingsView()), label: { _ in
+                                Text("Get an Account").font(.Medium).foregroundColor(Color.DarkGray)
+                                    .padding(.top, 6)
+                                //accenpts Tuple View
+                                Text("Get an Account").font(.Medium).foregroundColor(Color.DarkGray)
+                                    .padding(.top, 6)
+                            }).frame(width: UIScreen.screenWidth)
+                           
                            
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
@@ -88,7 +92,7 @@ struct Accounts: View, AccountsProtocol {
             
             }
 
-        }).background(Color.TDLightGray)
+        }).background(Color.LightGray)
         .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top).ignoresSafeArea()
         
     

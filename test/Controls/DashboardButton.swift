@@ -40,7 +40,7 @@ struct DashboardButton: View, DashboardButtonProtocol
                 .frame(width:UIScreen.screenWidth, alignment:.leading)
                 .padding(.leading, 60)
                 .foregroundColor(.black)
-                .font(.TDStandardFont)
+                .font(.StandardFont)
                 .background(
                     
                     NavigationLink(
@@ -60,7 +60,7 @@ struct DashboardButton: View, DashboardButtonProtocol
             
             
         })
-        .background(Color.TDLightGray)
+        .background(Color.LightGray)
         .frame(width: UIScreen.screenWidth, height: height,  alignment: .leading)
             }.frame(alignment:.leading)
             

@@ -30,7 +30,7 @@ struct ButtonNav: ButtonNavProtocol, View {
                                         .fill(Color.blue)
                                         .overlay(Circle().stroke(Color.white, lineWidth: 3))
                                         .frame(alignment:.center).padding(4))
-                    Text(item.description_key).font(.TDSmall).foregroundColor(.white)
+                    Text(item.description_key).font(.Small).foregroundColor(.white)
                  }
                 })
             }

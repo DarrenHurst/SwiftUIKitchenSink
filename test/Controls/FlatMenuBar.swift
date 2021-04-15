@@ -16,7 +16,7 @@ struct OffStyle: ViewModifier {
                 .foregroundColor(Color.white)
                 .background(Color.blue)
                 //.border(Color.black, width: 4)
-                .font(.TDLarge)
+                .font(.Large)
                 .scaledToFill()
         }
 }
@@ -28,7 +28,7 @@ struct OnStyle: ViewModifier {
                 .padding(10)
                 .foregroundColor(Color.white)
                 .background(Color.blue)
-                .font(.TDLarge)
+                .font(.Large)
                 .scaledToFit()
         }
 }

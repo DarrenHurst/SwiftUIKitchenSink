@@ -9,25 +9,25 @@ import SwiftUI
 
 extension Font {
     
-    public static var TDLargeBoldFont: Font {
+    public static var LargeBoldFont: Font {
         return Font.custom("HelveticaNeue", size: 20).bold()
     }
     
-    public static var TDSmall: Font {
+    public static var Small: Font {
         return Font.custom("HelveticaNeue", size: 12)
     }
-    public static var TDMedium: Font {
+    public static var Medium: Font {
         return Font.custom("HelveticaNeue", size: 18)
     }
-    public static var TDLarge: Font {
+    public static var Large: Font {
         return Font.custom("HelveticaNeue", size: 22)
     }
-    public static var TDStandardFont: Font {
+    public static var StandardFont: Font {
         return Font.custom("HelveticaNeue", size: 12)
     }
     
-    public static var TDTickerFont: Font {
-        return Font.custom("HelveticaNeue-italic", size: 15)
+    public static var TickerFont: Font {
+        return Font.custom("HelveticaNeue-italic", size: 11)
     }
     
 }

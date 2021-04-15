@@ -62,10 +62,10 @@ struct HomeView: View {
                 VStack.init(alignment: .center, spacing: nil, content: {
                     DashboardButton(text: "Accounts", height: 65).padding(0)
                     DashboardButton(text: "Crypto", height: 65).padding(0)
-                        .frame(width: UIScreen.screenWidth) .background(Color.TDLightGray)
+                        .frame(width: UIScreen.screenWidth) .background(Color.LightGray)
                 })
                
-            }.frame(height:UIScreen.screenHeight - 180).background(Color.TDLightGray)
+            }.frame(height:UIScreen.screenHeight - 180).background(Color.LightGray)
                 
                
                 

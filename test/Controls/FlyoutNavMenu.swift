@@ -32,10 +32,11 @@ struct FlyoutNavMenu: View {
       
         let items:[FlyoutNavMenuItem] = [item,item2,item3]
         let navItems:[ButtonItem] = [navitem]
+        
         VStack(alignment: .leading) {
             VStack(alignment: .leading){
                 ButtonNav(items: navItems).padding(.leading,70).padding(.top,60).padding(.bottom,20)
-            }.background( LinearGradient(gradient: Gradient(colors: [.black, .green]), startPoint: .top, endPoint: .bottom))
+            }.background(Color.DarkGray)
             VStack {
                 VStack(alignment: .leading)  {
                 ForEach(items, id: \.self) { item in
@@ -45,7 +46,7 @@ struct FlyoutNavMenu: View {
                             .imageScale(.medium)
                         Text(item.title)
                             .foregroundColor(.black)
-                            .font(.TDSmall)
+                            .font(.Small)
                             .frame(alignment:.leading)
                        
                     }.frame(alignment:.center)
