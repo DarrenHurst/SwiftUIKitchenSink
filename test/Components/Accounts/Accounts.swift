@@ -57,7 +57,7 @@ struct Accounts: View, AccountsProtocol {
                     VStack {
                         HStack {
                          
-                            Router(isActive: $accountDetailRoute, route: AnyView(AccountDetails()), label: {_ in }).hidden()
+                            Router(route: AnyView(AccountDetails()), label: {_ in }).hidden()
                                 .frame(width: 0, height: 0)
                             Button(action: {
                                 self.accountDetailRoute = true
@@ -74,11 +74,11 @@ struct Accounts: View, AccountsProtocol {
                     VStack {
                         HStack {
                             
-                            Router(isActive: $info, route: AnyView(SettingsView()), label: { _ in
+                            Router(route: AnyView(SettingsView()), label: { _ in
                                 Text("Get an Account").font(.Medium).foregroundColor(Color.DarkGray)
                                     .padding(.top, 6)
                                 //accenpts Tuple View
-                                Text("Get an Account").font(.Medium).foregroundColor(Color.DarkGray)
+                                Text("NOW").font(.Medium).foregroundColor(Color.red)
                                     .padding(.top, 6)
                             }).frame(width: UIScreen.screenWidth)
                            

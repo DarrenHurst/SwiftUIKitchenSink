@@ -88,10 +88,10 @@ struct AccountDetails: View, AccountDetailsProtocol {
                 }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
             }.frame(height:500, alignment: .leading)
             
-            }
+            }.ignoresSafeArea().opacity(0.9).navigationBarHidden(true)
 
         }).background(Color.LightGray)
-        .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top).ignoresSafeArea()
+        .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top)
         
     
     }

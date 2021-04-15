@@ -31,12 +31,15 @@ struct HomeView: View {
     @State var flyoutMenu: Bool = false
     @State var showMenu: Bool = false
     
-   
+    
     let item: ButtonItem = ButtonItem(image:"mail", description_key: "Accounts")
     let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Transfers")
     let item3: ButtonItem = ButtonItem(image:"slider.horizontal.3", description_key: "Pay Bills")
 
     var body: some View {
+        
+       
+        
         let drag = DragGesture()
                     .onEnded {
                         if $0.translation.width < -100 {
@@ -51,12 +54,15 @@ struct HomeView: View {
                 FlyoutNavMenu().frame(width: 70, alignment: .leading).gesture(drag).offset(x:-25)
                      }
         NavigationView {
+            
             VStack {
-               
-                HeaderView(infoClicked: $infoClicked, showMenu: $showMenu).frame(height:88).offset(y:15)
-                    ButtonNav(items: [item,item2,item3])
-                        .frame(height:80,alignment:.top).padding(EdgeInsets(top: 10, leading: 25, bottom: 0, trailing: 0)).offset(y:-20)
+                Color.blue
+                     .ignoresSafeArea() // Ignore just for the color
+                     
+                HeaderView(infoClicked: $infoClicked, showMenu: $showMenu).frame(height:88).offset(y:15).ignoresSafeArea()
                 
+                    ButtonNav(items: [item,item2,item3])
+                        .frame(height:80,alignment:.top).padding(EdgeInsets(top: 0, leading: 55, bottom: 0, trailing: 0)).offset(y:-40).ignoresSafeArea()
                                    
             ScrollView {
                 VStack.init(alignment: .center, spacing: nil, content: {
@@ -69,19 +75,17 @@ struct HomeView: View {
                 
                
                 
-            }
+            }.ignoresSafeArea()
             .background(Color.blue)
-            .navigationBarHidden(true)
-            
-           
         }
+        //left side button back
         .offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0)
         .padding(.leading,self.showMenu ? 40 : 0)
         .disabled(self.showMenu ? true : false)
        
        
           
-        }
+        }.ignoresSafeArea().background(Color.blue)
     
     }
     
