@@ -57,10 +57,10 @@ struct Accounts: View, AccountsProtocol {
                     VStack {
                         HStack {
                          
-                            Router(route: AnyView(AccountDetails()), label: {_ in }).hidden()
+                            Router(route: AnyView(AccountDetails()), label: {_ in })
                                 .frame(width: 0, height: 0)
                             Button(action: {
-                                self.accountDetailRoute = true
+                                //self.accountDetailRoute = true
                             }, label: {
                                 HStack {
                                 Text("American Express Card").font(.Medium).padding(.leading,4-10)

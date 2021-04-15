@@ -20,6 +20,8 @@ struct AccountDetails: View, AccountDetailsProtocol {
     @State var info: Bool! = false
     @State var menu: Bool = false
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         let items: [ButtonItem] = [
             ButtonItem(image: "book.fill", description_key: "Move Money"),
@@ -34,7 +36,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
                 
                 Text("ACCOUNT: STAFF ACCOUNT")
                     .foregroundColor(Color.white)
-                    .font(Font.Large).padding(.bottom, 15)
+                    .font(Font.Large).padding(.bottom, 16).offset(y:-7)
                 Text("Balance: $3244.33")
                     .foregroundColor(Color.white)
                     .font(Font.Large).padding(.bottom, 15)
@@ -42,7 +44,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
                 ButtonNav(items: items)
                     .frame(height:75, alignment: .center)
                     .padding(.leading, CGFloat(offsetWidth))
-                .frame(width: UIScreen.screenWidth, height: 80, alignment: .top)
+                .frame(width: UIScreen.screenWidth, alignment: .top)
                 
                 FlatMenuBar { () -> Void? in
                     NSLog("Action1")
@@ -50,14 +52,23 @@ struct AccountDetails: View, AccountDetailsProtocol {
                     return
                 } action3: { () -> Void? in
                     return
-                }
+                }.frame(height:100)
                 
             })
-            .padding(.top, 100)
-            .frame(height:400)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading:
+                                    VStack {
+                                        Button(action: {
+                                            presentationMode.wrappedValue.dismiss()
+                                        }, label: {
+                                            Image(systemName: "arrowshape.turn.up.left.circle").foregroundColor(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        })
+                                    }
+            ).offset(y:63)
+            .padding(.bottom, 24)
             .background(Color.blue)
-          Spacer()
-            
+          
+        
             ScrollView {
                 List {
                     VStack {
@@ -85,13 +96,14 @@ struct AccountDetails: View, AccountDetailsProtocol {
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                    
-                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
-            }.frame(height:500, alignment: .leading)
+                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
+            }.frame(alignment: .top).padding(.bottom, 44)
             
-            }.ignoresSafeArea().opacity(0.9).navigationBarHidden(true)
+                Spacer()
+            }
 
-        }).background(Color.LightGray)
-        .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top)
+        })
+        .frame(width: UIScreen.screenWidth, alignment: .top).ignoresSafeArea()
         
     
     }

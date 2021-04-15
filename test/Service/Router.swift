@@ -44,7 +44,8 @@ struct Router<Content: View>: View, RouterProtocol {
             label: {
                 label
             }
-        ).navigationBarBackButtonHidden(true)
+              )
+              .navigationBarBackButtonHidden(true)
               .navigationBarItems(leading:
                                 VStack {
                                     Button(action: {
