@@ -160,10 +160,10 @@
 		EB4C693826026A4C0037244A /* test */ = {
 			isa = PBXGroup;
 			children = (
+				EB4C6971260533810037244A /* Controls */,
 				EB857186260FB0C40005FA32 /* Extensions */,
 				EB4C69C62607ED6B0037244A /* Service */,
-				EB4C69C72607ED830037244A /* Components */,
-				EB4C6971260533810037244A /* Controls */,
+				EB4C69C72607ED830037244A /* Workflow */,
 				EB4C693926026A4C0037244A /* testApp.swift */,
 				EB4C693B26026A4C0037244A /* ContentView.swift */,
 				EB4C693D26026A4D0037244A /* Assets.xcassets */,
@@ -224,7 +224,7 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		EB4C69C72607ED830037244A /* Components */ = {
+		EB4C69C72607ED830037244A /* Workflow */ = {
 			isa = PBXGroup;
 			children = (
 				EB164E9B261F65B2009E4BCC /* Accounts */,
@@ -232,7 +232,7 @@
 				EB1152EF260A2F5500D1FBBA /* Home */,
 				EB4C69C82607EDAA0037244A /* Login */,
 			);
-			path = Components;
+			path = Workflow;
 			sourceTree = "<group>";
 		};
 		EB4C69C82607EDAA0037244A /* Login */ = {

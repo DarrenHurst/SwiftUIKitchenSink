@@ -11,7 +11,7 @@ import Combine
 
 struct ContentView: View {
     
-    var body: some View {
+     var body: some View {
         VStack {
             HomeView().frame(height: UIScreen.screenHeight - 50) // size of tabbar
             TDtabBar().frame(width: UIScreen.screenWidth, height: 44, alignment:.top)

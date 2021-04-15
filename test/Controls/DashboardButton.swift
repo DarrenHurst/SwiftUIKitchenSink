@@ -33,9 +33,10 @@ struct DashboardButton: View, DashboardButtonProtocol
         VStack.init(alignment: .leading, spacing: 0, content: {
             
             HStack {
-               
-                    
-                Button(action:{ self.showAccount =  true}, label: {
+                Button(action:{ self.showAccount =  true
+                    let ticket:firstClass = firstClass()
+                    NSLog("The number of rooms is \(ticket.firstClass!.food)")
+                }, label: {
             Text(text)
                 .frame(width:UIScreen.screenWidth, alignment:.leading)
                 .padding(.leading, 60)
