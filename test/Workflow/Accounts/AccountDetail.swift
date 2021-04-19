@@ -19,7 +19,7 @@ protocol AccountDetailsProtocol{
 struct AccountDetails: View, AccountDetailsProtocol {
     @State var info: Bool! = false
     @State var menu: Bool = false
-    
+   
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {

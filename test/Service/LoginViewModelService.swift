@@ -46,3 +46,22 @@ class Seating {
     }
   
 }
+/*
+Example 1:
+Input: s = "barfoothefoobarman", words = ["foo","bar"]
+Output: [0,9]
+
+ */
+
+    
+
+/*
+Example 2:
+Input: s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]
+Output: [] */
+
+
+
+
+//Output: [6,9] */
+//print(_, mapvar)

@@ -8,40 +8,6 @@
 import Foundation
 import SwiftUI
 
-struct OffStyle: ViewModifier {
-    func body(content: Content) -> some View {
-            content
-                .font(.caption)
-                .padding(10)
-                .foregroundColor(Color.white)
-                .background(Color.blue)
-                //.border(Color.black, width: 4)
-                .font(.Large)
-                .scaledToFill()
-        }
-}
-
-struct OnStyle: ViewModifier {
-    func body(content: Content) -> some View {
-            content
-                .font(.caption)
-                .padding(10)
-                .foregroundColor(Color.white)
-                .background(Color.blue)
-                .font(.Large)
-                .scaledToFit()
-        }
-}
-
-extension Button {
-    func offStyle() -> some View {
-        modifier(OffStyle())
-    }
-    func onStyle() -> some View {
-        modifier(OnStyle())
-    }
-}
-
 struct FlatMenuBar: View {
     var action1:() ->Void?
     var action2:() ->Void?
@@ -57,7 +23,7 @@ struct FlatMenuBar: View {
         LazyVGrid(columns: columns, content: {
             Button("Summary", action: {
                 action1()
-            }).onStyle()
+            }).standardButton()
             Button("Rewards", action: {
                 action2()
             }).offStyle()

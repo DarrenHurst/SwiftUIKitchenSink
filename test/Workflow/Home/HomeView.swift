@@ -32,6 +32,8 @@ struct HomeView: View {
     @State var showMenu: Bool = false
     
     
+    @State var appeared: CGFloat = 1.0
+
     let item: ButtonItem = ButtonItem(image:"mail", description_key: "Accounts")
     let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Transfers")
     let item3: ButtonItem = ButtonItem(image:"slider.horizontal.3", description_key: "Pay Bills")
@@ -79,6 +81,10 @@ struct HomeView: View {
             .background(Color.blue)
         }
         //left side button back
+        .animation(.linear(duration: 55), value: appeared)
+        .onAppear { appeared = 1.0}
+        .onDisappear { appeared = 0.0}
+        
         .offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0)
         .padding(.leading,self.showMenu ? 40 : 0)
         .disabled(self.showMenu ? true : false)

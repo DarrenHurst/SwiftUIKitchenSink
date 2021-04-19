@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LoginFormView: View {
-    var bounce: Animation = Animation.default.repeatCount(5).speed(3)
+       
     @State var offset: CGFloat = 0.0
     @State var selection: Int? = nil
     @Binding var showMenu: Bool 
     @ObservedObject var formModel: FormModel
     
+    var bounce: Animation = Animation.default.repeatCount(5).speed(3)
 
     var body: some View {
       
@@ -75,3 +76,8 @@ struct LoginFormView: View {
       
 }
 
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginFormView(showMenu: .constant(false), formModel: FormModel())
+    }
+}

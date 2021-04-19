@@ -86,15 +86,14 @@ struct Accounts: View, AccountsProtocol {
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                    
-                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }.standard()
                 //geometry add here for height..  or possible return UIScreen.fitHeight extension TODO
             }.frame(alignment: .leading).background(Color.red)
             
             }
 
-        }).background(Color.LightGray)
-        .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top).ignoresSafeArea()
-        
+        }).standard().ignoresSafeArea()
+        .transition(.slide)
     
     }
 }

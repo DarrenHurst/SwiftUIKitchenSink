@@ -20,26 +20,35 @@ import SwiftUI
 
 protocol RouterProtocol {
     var route: AnyView {get set}
+   
 
 }
 struct Router<Content: View>: View, RouterProtocol {
     var route: AnyView
     @State var isActive: Bool = false
+    var label: Content
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    let label: Content
-
+ 
+ 
     init(route: AnyView, @ViewBuilder label:(()?) -> Content ) {
         self.route = route
         self.label = label(())
-        
         self.isActive = isActive
     
     }
     
+    
+    // we could route light vs dark passing a tuple
+   /* if colorScheme == .dark { // Checks the wrapped value.
+        DarkContent()
+    } else {
+        LightContent()
+    }*/
     var body: some View {
+        
               NavigationLink(
-            destination: route,
+                destination: route,
             isActive: $isActive,
             label: {
                 label
@@ -53,7 +62,7 @@ struct Router<Content: View>: View, RouterProtocol {
                                     }, label: {
                                         Image(systemName: "arrowshape.turn.up.left.circle").foregroundColor(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     })
-                                }.frame(height:44).foregroundColor(.white)
+                                }.frame(height:344).foregroundColor(.white)
               ).ignoresSafeArea()
     }
 }
