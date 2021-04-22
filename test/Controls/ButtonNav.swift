@@ -31,10 +31,10 @@ struct ButtonNav: ButtonNavProtocol, View {
                                         .overlay(Circle().stroke(Color.white, lineWidth: 3))
                                         .frame(alignment:.center).padding(4))
                     Text(item.description_key).font(.Small).foregroundColor(.white)
-                 }
+                 }.background(Color.blue)
                 })
             }
-        }.frame(width: UIScreen.screenWidth, height: 100, alignment: .leading)
+        }.frame(width: UIScreen.screenWidth, height: 100, alignment: .center).background(Color.blue)
         //.padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing:20))
     }
 }

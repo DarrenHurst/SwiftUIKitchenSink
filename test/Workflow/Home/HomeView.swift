@@ -26,13 +26,14 @@ struct HomeView: View {
    
     //@ObservedObject private var model = testModel.shared
     
-    @State var pickerOn: Bool = false
+    /*@State var pickerOn: Bool = false
     @State var infoClicked: Bool = false
     @State var flyoutMenu: Bool = false
     @State var showMenu: Bool = false
-    
-    
+    */
+    @State var infoClicked: Bool = false
     @State var appeared: CGFloat = 1.0
+    @State var showMenu: Bool = false
 
     let item: ButtonItem = ButtonItem(image:"mail", description_key: "Accounts")
     let item2: ButtonItem = ButtonItem(image:"doc.plaintext", description_key: "Transfers")
@@ -40,31 +41,18 @@ struct HomeView: View {
 
     var body: some View {
         
-       
-        
-        let drag = DragGesture()
-                    .onEnded {
-                        if $0.translation.width < -100 {
-                            withAnimation {
-                                self.showMenu = false
-                            }
-                        }
-                    }
+    
         HStack {
            
-            if(self.showMenu) {
-                FlyoutNavMenu().frame(width: 70, alignment: .leading).gesture(drag).offset(x:-25)
-                     }
-        NavigationView {
-            
+
             VStack {
                 Color.blue
                      .ignoresSafeArea() // Ignore just for the color
                      
-                HeaderView(infoClicked: $infoClicked, showMenu: $showMenu).frame(height:88).offset(y:15).ignoresSafeArea()
+                HeaderView(infoClicked: $infoClicked, showMenu: $showMenu).frame(height:55).offset(y:15).ignoresSafeArea()
                 
                     ButtonNav(items: [item,item2,item3])
-                        .frame(height:80,alignment:.top).padding(EdgeInsets(top: 0, leading: 55, bottom: 0, trailing: 0)).offset(y:-40).ignoresSafeArea()
+                        .frame(height:80,alignment:.top).offset(y:-14).ignoresSafeArea()
                                    
             ScrollView {
                 VStack.init(alignment: .center, spacing: nil, content: {
@@ -73,25 +61,27 @@ struct HomeView: View {
                         .frame(width: UIScreen.screenWidth) .background(Color.LightGray)
                 })
                
-            }.frame(height:UIScreen.screenHeight - 180).background(Color.LightGray)
+            }.frame(height:UIScreen.screenHeight - 180).background(Color.LightGray).ignoresSafeArea()
                 
                
-                
-            }.ignoresSafeArea()
-            .background(Color.blue)
-        }
-        //left side button back
-        .animation(.linear(duration: 55), value: appeared)
-        .onAppear { appeared = 1.0}
-        .onDisappear { appeared = 0.0}
+               
         
-        .offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0)
-        .padding(.leading,self.showMenu ? 40 : 0)
-        .disabled(self.showMenu ? true : false)
+            }.ignoresSafeArea()
+            .navigationTitle("").navigationBarHidden(true)
+        
+      
+        //left side button back
+        //.animation(.linear(duration: 55), value: appeared)
+       // .onAppear { appeared = 1.0}
+        //.onDisappear { appeared = 0.0}
+        //.offset(x: self.showMenu ? UIScreen.screenWidth/2 - 110 : 0)
+        //.padding(.leading,self.showMenu ? 40 : 0)
+        //.disabled(self.showMenu ? true : false)
        
        
           
-        }.ignoresSafeArea().background(Color.blue)
+        }.ignoresSafeArea()
+        .background(Color.blue)
     
     }
     

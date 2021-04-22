@@ -44,17 +44,17 @@ struct DashboardButton: View, DashboardButtonProtocol
                 .font(.StandardFont)
                 .background(
                     
-                    NavigationLink(
-                        destination: Accounts(),
-                        label: {
-                            Rectangle()
-                                .fill(Color.white)
-                                .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: height,  alignment: .topLeading
-                                )
-                                .cornerRadius(5.0)
-                                .padding(EdgeInsets(top: 0, leading: CGFloat(margin), bottom: 0, trailing: CGFloat(margin)))
-                                .scaledToFit()
-                        })
+                    Router(route: AnyView(Accounts()), isChild: false, label: { _ in
+                        Rectangle()
+                            .fill(Color.white)
+                            .frame(width: UIScreen.screenWidth - CGFloat(margin * 2), height: height,  alignment: .topLeading
+                            )
+                            .cornerRadius(5.0)
+                            .padding(EdgeInsets(top: 0, leading: CGFloat(margin), bottom: 0, trailing: CGFloat(margin)))
+                            .scaledToFit()
+                    })
+                        
+                    
                 )
                 .opacity(0.8)
                 .frame(width: UIScreen.screenWidth, height: height)

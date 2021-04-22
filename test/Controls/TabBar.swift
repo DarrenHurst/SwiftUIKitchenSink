@@ -10,7 +10,13 @@ import SwiftUI
 struct TDtabBar: View {
     @State var index: Int = 0
     @State var curvePos: CGFloat = 0
-
+    
+    @State var menu1: Bool = false
+    @State var menu2: Bool = false
+    @State var menu3: Bool = false
+    @State var menu4: Bool = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
 
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
@@ -27,8 +33,8 @@ struct TDtabBar: View {
                         withAnimation(.interactiveSpring()){
                         index = 0
                             self.curvePos = g.frame(in: .global).midX
+                            self.menu1 = true
                         }
-                            
                 }, label: {
                
                     Image(systemName: "bookmark.circle.fill")
@@ -42,6 +48,11 @@ struct TDtabBar: View {
                         
                 })
                     }.frame(width: 43, height: 43)
+                    .popover(isPresented: $menu1) {
+                                         Text("navigation list")
+                                             .font(.headline)
+                                             .padding()
+                                     }
                     .onAppear {
                         DispatchQueue.main.async {
                             self.curvePos = g.frame(in: .global).midX
@@ -62,6 +73,7 @@ struct TDtabBar: View {
                         withAnimation(.interactiveSpring()){
                             index = 1
                             self.curvePos = g.frame(in: .global).midX
+                            self.menu2 = true
                         }
                     }, label: {
                    
@@ -76,6 +88,11 @@ struct TDtabBar: View {
                             
                     })
                         }.frame(width: 43, height: 43)
+                        .popover(isPresented: $menu2) {
+                                             Text("navigation list")
+                                                 .font(.headline)
+                                                 .padding()
+                                         }
                         .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX
@@ -89,11 +106,12 @@ struct TDtabBar: View {
                     GeometryReader(content: { g in
                 
                         VStack {
-                    
+                            //Router(route: AnyView(ContentView()), isChild: false, label:{_ in
                             Button(action: {
                         withAnimation(.interactiveSpring()){
-                            index = 2
+                            self.index = 2
                             self.curvePos = g.frame(in: .global).midX
+                            self.presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {
                         
@@ -102,11 +120,11 @@ struct TDtabBar: View {
                             .background(Color.blue)
                             .foregroundColor(index == 2 ? .black : .gray)
                             .frame(width: 48, height: 48, alignment: .center).fixedSize().fixedSize(horizontal: true, vertical: true).mask(Circle())
-                     
+                    //})
                     //.foregroundColor(index == 0 ? .black : .white)
                     .frame(width:48, height:48)
                             .padding(.all, 15)
-                            .background(Color.white.opacity(index == 2 ? 2 : 0)).clipShape(Circle())
+                            .background(Color.white.opacity(index == 2 ? 1 : 0)).clipShape(Circle())
                             .offset(y: index == 2 ? -15 :0)
                                                })
                         }.frame(width: 43, height: 43)
@@ -129,6 +147,7 @@ struct TDtabBar: View {
                         withAnimation(.interactiveSpring()){
                             index = 3
                             self.curvePos = g.frame(in: .global).midX
+                            self.menu3 = true
                         }
                     }, label: {
                    
@@ -141,8 +160,17 @@ struct TDtabBar: View {
                             .background(Color.white.opacity(index == 3 ? 1 : 0)).clipShape(Circle())
                             .offset(y: index == 3 ? -15 :0)
                            
+                    }).popover(isPresented: $menu3, attachmentAnchor: .point(UnitPoint.bottom), arrowEdge: .top, content: {
+                        VStack {
+                        ListSample().onDisappear(perform: {
+                            index = 8
+                        })
+                        }.frame(height:100, alignment: .top)
                     })
                         }.frame(width: 43, height: 43)
+                        
+                            
+                        
                         .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX
@@ -161,6 +189,7 @@ struct TDtabBar: View {
                                 withAnimation(.interactiveSpring()){
                             index = 4
                             self.curvePos = g.frame(in: .global).midX
+                                    self.menu4 = true
                         }
                     }, label: {
                    
@@ -176,6 +205,11 @@ struct TDtabBar: View {
                             
                     })
                         }.frame(width: 43, height: 43)
+                        .popover(isPresented: $menu4) {
+                                             Text("navigation list")
+                                                 .font(.headline)
+                                                 .padding()
+                                         }
                         .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX

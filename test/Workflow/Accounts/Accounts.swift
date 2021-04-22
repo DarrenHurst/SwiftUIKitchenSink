@@ -26,21 +26,20 @@ struct Accounts: View, AccountsProtocol {
             ButtonItem(image: "book.fill", description_key: "Move Money"),
             ButtonItem(image: "dial.fill", description_key: "Activity")
             ]
-        let offsetWidth: Int =  Int(UIScreen.screenWidth)/2 + (items.count * 44 / 2) // 44 size of button item
+        //let offsetWidth: Int =  Int(UIScreen.screenWidth)/2 + (items.count * 44 / 2) // 44 size of button item
         
         HStack.init(content: {
             VStack {
             VStack.init(alignment: .center, content:  {
                 ButtonNav(items: items)
-                    .frame(height:75, alignment: .center)
-                    .padding(.leading, CGFloat(offsetWidth))
-                .frame(width: UIScreen.screenWidth, height: 80, alignment: .top)
+                    .frame(width:UIScreen.screenWidth, height:75, alignment: .center)
+                    //.padding(.leading, CGFloat(offsetWidth))
                 
             })
             .padding(.top, 100)
             .padding(.bottom,20)
             .frame(height:100)
-            .background(Color.blue)
+            .background(Color.blue).ignoresSafeArea()
       
             ScrollView {
                 List {
@@ -57,16 +56,18 @@ struct Accounts: View, AccountsProtocol {
                     VStack {
                         HStack {
                          
-                            Router(route: AnyView(AccountDetails()), label: {_ in })
-                                .frame(width: 0, height: 0)
-                            Button(action: {
-                                //self.accountDetailRoute = true
-                            }, label: {
-                                HStack {
-                                Text("American Express Card").font(.Medium).padding(.leading,4-10)
-                                Spacer()
-                                Text("1623.55").padding(.trailing,40).padding(.top, 15)
-                            }
+                            Router(route: AnyView(AccountDetails()), isChild:true, label: {_ in
+                                Button(action: {
+                                    //self.accountDetailRoute = true
+                                }, label: {
+                                    HStack {
+                                    Text("American Express Card").font(.Medium).padding(.leading,4-10)
+                                    Spacer()
+                                    Text("1623.55").padding(.trailing,40).padding(.top, 15)
+                                }
+                            })
+                             
+                            
                             })
                         }
                     }.frame(width: UIScreen.screenWidth, alignment: .top)
@@ -74,7 +75,7 @@ struct Accounts: View, AccountsProtocol {
                     VStack {
                         HStack {
                             
-                            Router(route: AnyView(SettingsView()), label: { _ in
+                            Router(route: AnyView(SettingsView()), isChild: true, label: { _ in
                                 Text("Get an Account").font(.Medium).foregroundColor(Color.DarkGray)
                                     .padding(.top, 6)
                                 //accenpts Tuple View
@@ -86,13 +87,17 @@ struct Accounts: View, AccountsProtocol {
                         }
                     }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
                    
-                }.standard()
+                }.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight-40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 //geometry add here for height..  or possible return UIScreen.fitHeight extension TODO
-            }.frame(alignment: .leading).background(Color.red)
+            }.frame(alignment: .leading)
             
+                TDtabBar().frame(width: UIScreen.screenWidth, height: 24, alignment:.bottom)
+                    .background(Color.white).offset(y:-60)
+                
             }
 
-        }).standard().ignoresSafeArea()
+        }).background(Color.clear)
+        .frame(width: UIScreen.screenWidth,height: UIScreen.screenHeight, alignment: .top)
         .transition(.slide)
     
     }

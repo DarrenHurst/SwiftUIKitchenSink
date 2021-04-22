@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AccountDetailsHeader: View {
     var body: some View {
-        Text("AccountDetailsHeader")
+        Text("AccountDetailsHeader ")
     }
 }
 

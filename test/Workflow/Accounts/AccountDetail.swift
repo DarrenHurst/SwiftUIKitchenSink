@@ -27,7 +27,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
             ButtonItem(image: "book.fill", description_key: "Move Money"),
             ButtonItem(image: "dial.fill", description_key: "Activity")
             ]
-        let offsetWidth: Int =  Int(UIScreen.screenWidth)/2 + (items.count * 44 / 2) // 44 size of button item
+        //let offsetWidth: Int =  Int(UIScreen.screenWidth)/2 + (items.count * 44 / 2) // 44 size of button item
         
         HStack.init(content: {
             VStack {
@@ -36,14 +36,14 @@ struct AccountDetails: View, AccountDetailsProtocol {
                 
                 Text("ACCOUNT: STAFF ACCOUNT")
                     .foregroundColor(Color.white)
-                    .font(Font.Large).padding(.bottom, 16).offset(y:-7)
+                    .font(Font.Medium).padding(.bottom, 16).offset(y:-7)
                 Text("Balance: $3244.33")
                     .foregroundColor(Color.white)
-                    .font(Font.Large).padding(.bottom, 15)
+                    .font(Font.Medium).padding(.bottom, 15)
                         
                 ButtonNav(items: items)
                     .frame(height:75, alignment: .center)
-                    .padding(.leading, CGFloat(offsetWidth))
+                    .padding(.leading, CGFloat(0))
                 .frame(width: UIScreen.screenWidth, alignment: .top)
                 
                 FlatMenuBar { () -> Void? in

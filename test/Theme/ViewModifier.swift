@@ -28,6 +28,7 @@ struct StandardButton: ViewModifier {
 extension View {
     func standard() -> some View {
        modifier(Standard())
+        //.modifier(StandardButton())
     }
 }
 extension Button {

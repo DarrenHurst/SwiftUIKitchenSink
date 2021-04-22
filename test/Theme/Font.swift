@@ -9,21 +9,36 @@ import SwiftUI
 
 extension Font {
     
+    static func loadFonts() {
+            // Register fonts to app, without using the Info.plist.... :smiling_imp:
+            if let fontURLs = Bundle.main.urls(forResourcesWithExtension: "ttf", subdirectory: "cookie") {
+                if #available(iOS 13.0, *) {
+                    CTFontManagerRegisterFontURLs(fontURLs as CFArray, .process, true, nil)
+                } else {
+                    CTFontManagerRegisterFontsForURLs(fontURLs as CFArray, .process, nil)
+                }
+            }
+        }
+    
+    
     public static var LargeBoldFont: Font {
-        return Font.custom("HelveticaNeue", size: 20).bold()
+        return Font.custom("Cookie-Regular", size: 20).bold()
     }
     
     public static var Small: Font {
-        return Font.custom("HelveticaNeue", size: 12)
+    
+        return Font.custom("Helvetica-Neue", size: 12)
     }
     public static var Medium: Font {
-        return Font.custom("HelveticaNeue", size: 18)
+     
+        return Font.custom("Helvetica-Neue", size: 22)
     }
     public static var Large: Font {
-        return Font.custom("HelveticaNeue", size: 22)
+        loadFonts()
+        return Font.custom("Cookie-Regular", size: 32)
     }
     public static var StandardFont: Font {
-        return Font.custom("HelveticaNeue", size: 12)
+        return Font.custom("Helvetica-Neue", size: 12)
     }
     
     public static var TickerFont: Font {

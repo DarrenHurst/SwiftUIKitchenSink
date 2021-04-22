@@ -20,35 +20,56 @@ import SwiftUI
 
 protocol RouterProtocol {
     var route: AnyView {get set}
+    var isChild: Bool {get set}
    
 
 }
 struct Router<Content: View>: View, RouterProtocol {
     var route: AnyView
-    @State var isActive: Bool = false
+    var isChild: Bool = true
     var label: Content
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var appeared: Double = 0
+    @State var o: Double = 0.0
+    @State var isActive: Bool = false
  
- 
-    init(route: AnyView, @ViewBuilder label:(()?) -> Content ) {
+    init(route: AnyView, isChild: Bool, @ViewBuilder label:(()?) -> Content ) {
         self.route = route
+        self.isChild = isChild //TODO Remove
         self.label = label(())
         self.isActive = isActive
+        self.o = isChild ? 1.0 : 0.0
     
     }
     
-    
-    // we could route light vs dark passing a tuple
-   /* if colorScheme == .dark { // Checks the wrapped value.
-        DarkContent()
-    } else {
-        LightContent()
-    }*/
     var body: some View {
-        
-              NavigationLink(
-                destination: route,
+        let backButtonView =  Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            Image(systemName: "arrowshape.turn.up.left.circle")
+                .foregroundColor(Color.white)
+                .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        })
+    
+          
+        NavigationLink(
+                destination: route
+                    .opacity(appeared)
+                    .animation(Animation.easeIn(duration: 0.05))
+                    .onAppear {
+                        self.appeared = 1.0
+                       // o = isChild ? 1.0: 0.0
+                        self.o = isChild ? 1.0 : 0.0
+                        
+                    }
+                    .onChange(of: self.appeared, perform: { _ in
+                        self.o = isChild ? 0.0: 1.0
+                    })
+                    .onDisappear {
+                        self.appeared = 0.0
+                        self.o = 0.0
+                        },
             isActive: $isActive,
             label: {
                 label
@@ -57,14 +78,12 @@ struct Router<Content: View>: View, RouterProtocol {
               .navigationBarBackButtonHidden(true)
               .navigationBarItems(leading:
                                 VStack {
-                                    Button(action: {
-                                        presentationMode.wrappedValue.dismiss()
-                                    }, label: {
-                                        Image(systemName: "arrowshape.turn.up.left.circle").foregroundColor(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    })
-                                }.frame(height:344).foregroundColor(.white)
-              ).ignoresSafeArea()
+                                    backButtonView.opacity(o)
+                                }.foregroundColor(.white)
+              )
     }
+    
+    
 }
 
 
