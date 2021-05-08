@@ -14,7 +14,7 @@ struct ContentView: View {
      var body: some View {
         VStack {
             NavigationView {
-                HomeView().offset(y:24)// size of tabbar
+               Accounts().offset(y:24)// size of tabbar
          
             }
                    .navigationBarTitle("")

@@ -10,19 +10,18 @@ import SwiftUI
 
 struct ListSample: View {
     var body: some View {
-        VStack {
-        List {
+        ZStack {
+     
             VStack {
-                Text("Cash Accounts").font(.Large)
-            }
-            VStack {
+                HStack {
+                Text("Cash Accounts").font(.Large).frame(width: UIScreen.screenWidth, alignment: .leading)
+                }
                 HStack {
                     Text("Staff Account").font(.Medium)
                     Spacer()
                     Text("-23.55").padding(.trailing, 50).padding(.top, 15)
                 }
-            }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
-            VStack {
+          
                 HStack {
                  
                     Router(route: AnyView(AccountDetails()), isChild:true, label: {_ in
@@ -39,9 +38,7 @@ struct ListSample: View {
                     
                     })
                 }
-            }.frame(width: UIScreen.screenWidth, alignment: .top)
-           
-            VStack {
+            
                 HStack {
                     
                     Router(route: AnyView(SettingsView()), isChild: true, label: { _ in
@@ -54,10 +51,12 @@ struct ListSample: View {
                    
                    
                 }
-            }.frame(width: UIScreen.screenWidth, height:40, alignment: .top)
+            }
+            .standard().padding(.leading, 33)
            
-        }.frame(width: UIScreen.screenWidth, height: 300)
         }
+        .standard()
+        
     }
 }
 

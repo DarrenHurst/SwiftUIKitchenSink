@@ -56,15 +56,7 @@ struct AccountDetails: View, AccountDetailsProtocol {
                 
             })
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading:
-                                    VStack {
-                                        Button(action: {
-                                            presentationMode.wrappedValue.dismiss()
-                                        }, label: {
-                                            Image(systemName: "arrowshape.turn.up.left.circle").foregroundColor(Color.white).frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        })
-                                    }
-            ).offset(y:63)
+            .offset(y:63)
             .padding(.bottom, 24)
             .background(Color.blue)
           

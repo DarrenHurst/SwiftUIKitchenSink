@@ -29,6 +29,10 @@ extension LinearGradient {
         return LinearGradient(gradient: Gradient(colors: [.green, .green, .white]), startPoint: .top, endPoint: .bottom)
     }
     public static var GreenTOWhite: LinearGradient {
-        return LinearGradient(gradient: Gradient(colors: [.green, .green,.green,.green, .white]), startPoint: .top, endPoint: .bottom)
+        return LinearGradient(gradient: Gradient(colors: [.DarkGray, .green,.DarkGray,.green]), startPoint: .top, endPoint: .bottom)
     }
 }
+extension RadialGradient {
+    public static var  fun: RadialGradient {
+        return RadialGradient(gradient: Gradient(colors: [.yellow,.orange, .white]), center: .center, startRadius: 57, endRadius: 5500)
+    }}

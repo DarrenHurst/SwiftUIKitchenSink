@@ -6,22 +6,60 @@
 //
 import Foundation
 import SwiftUI
+import Lottie
 
 struct TDtabBar: View {
-    @State var index: Int = 0
+    @State var index: Int = 8
     @State var curvePos: CGFloat = 0
     
-    @State var menu1: Bool = false
+    @State var menu1: Bool = true
     @State var menu2: Bool = false
     @State var menu3: Bool = false
     @State var menu4: Bool = false
+    @State var run: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    func resetMenu() -> Void {
+        menu1 = false
+        menu2 = false
+        menu3 = false
+        menu4 = false
+        run = false
+    }
+    
     var body: some View {
-
-        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
-            Color("Color")
         
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
+            PageView(presented: $menu1, backgroundColor: Color.orange, page:  AnyView(ChartView(xStepValue: 1.0, yStepValue: 0.04)
+                                                        .frame(width: 100, height: UIScreen.screenHeight-300, alignment: .top)
+                                                                                        .offset(x:-10,y:-45)), Action: {
+                                              })
+            PageView(presented: $run, backgroundColor: Color.red, page:  AnyView(OnboardingWorkflow().frame(width: 100, height: UIScreen.screenHeight, alignment: .bottom)
+            ), Action: {
+            })
+           
+            
+            
+            ZStack {
+                VStack{
+                    Page.init(isPresented: self.$menu2,backgroundColor: Color.red, view: AnyView(ListSample().frame(width: 100, height: UIScreen.screenHeight, alignment: .top).offset(y:-195)))
+                }.opacity(self.menu2 ? 1.0: 0.0)
+            }.opacity(self.menu2 ? 1.0: 0.0)
+           // .background(self.menu2 ? Color.red: Color.white)
+            
+            
+            ZStack {
+                VStack{
+                    Page.init(isPresented: self.$menu3,backgroundColor: Color.blue, view: AnyView(PhoneScreen().frame(width: 100, height: UIScreen.screenHeight, alignment: .top).offset(x:-20)))
+                }.opacity(self.menu3 ? 1.0: 0.0)
+            }.opacity(self.menu3 ? 1.0: 0.0)
+            
+            ZStack {
+                VStack{
+                    Page.init(isPresented: self.$menu4,backgroundColor: Color.green, view: AnyView(ListSample().frame(width: 100, height: UIScreen.screenHeight, alignment: .top).offset(y:-200).hueRotation(Angle(degrees: 90)))).frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .bottom)
+                }.opacity(self.menu4 ? 1.0: 0.0)
+            }.opacity(self.menu4 ? 1.0: 0.0)
             HStack {
             
                 GeometryReader(content: { g in
@@ -33,7 +71,9 @@ struct TDtabBar: View {
                         withAnimation(.interactiveSpring()){
                         index = 0
                             self.curvePos = g.frame(in: .global).midX
+                            self.resetMenu()
                             self.menu1 = true
+                           
                         }
                 }, label: {
                
@@ -48,11 +88,7 @@ struct TDtabBar: View {
                         
                 })
                     }.frame(width: 43, height: 43)
-                    .popover(isPresented: $menu1) {
-                                         Text("navigation list")
-                                             .font(.headline)
-                                             .padding()
-                                     }
+
                     .onAppear {
                         DispatchQueue.main.async {
                             self.curvePos = g.frame(in: .global).midX
@@ -71,9 +107,12 @@ struct TDtabBar: View {
                     
                             Button(action: {
                         withAnimation(.interactiveSpring()){
-                            index = 1
-                            self.curvePos = g.frame(in: .global).midX
-                            self.menu2 = true
+                            DispatchQueue.main.async {
+                                self.resetMenu()
+                                self.index = 1
+                                self.menu2 = true
+                            }
+                           
                         }
                     }, label: {
                    
@@ -88,16 +127,18 @@ struct TDtabBar: View {
                             
                     })
                         }.frame(width: 43, height: 43)
-                        .popover(isPresented: $menu2) {
+                        /*.popover(isPresented: $menu2) {
                                              Text("navigation list")
                                                  .font(.headline)
                                                  .padding()
                                          }
-                        .onAppear {
+                       */ .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX
                             }
                         }
+                  
+                       
                 
                 }).frame(width: 43, height: 43)
                     
@@ -106,33 +147,24 @@ struct TDtabBar: View {
                     GeometryReader(content: { g in
                 
                         VStack {
-                            //Router(route: AnyView(ContentView()), isChild: false, label:{_ in
-                            Button(action: {
-                        withAnimation(.interactiveSpring()){
-                            self.index = 2
-                            self.curvePos = g.frame(in: .global).midX
-                            self.presentationMode.wrappedValue.dismiss()
+                  
+                            
+                            IconWithBounce(run: self.$run){
+                                DispatchQueue.main.async {
+                                    self.resetMenu()
+                                    self.index = 2
+                                    self.run = true
+                                }
+                            }.offset(x:-20,y:-50)
+                     
                         }
-                    }, label: {
-                        
-                        Image("Logo")
-                          .resizable()
-                            .background(Color.blue)
-                            .foregroundColor(index == 2 ? .black : .gray)
-                            .frame(width: 48, height: 48, alignment: .center).fixedSize().fixedSize(horizontal: true, vertical: true).mask(Circle())
-                    //})
-                    //.foregroundColor(index == 0 ? .black : .white)
-                    .frame(width:48, height:48)
-                            .padding(.all, 15)
-                            .background(Color.white.opacity(index == 2 ? 1 : 0)).clipShape(Circle())
-                            .offset(y: index == 2 ? -15 :0)
-                                               })
-                        }.frame(width: 43, height: 43)
+                   
                         .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX
                             }
                         }
+                        
 
                 
                 }).frame(width: 43, height: 43)
@@ -145,9 +177,13 @@ struct TDtabBar: View {
                     
                             Button(action: {
                         withAnimation(.interactiveSpring()){
-                            index = 3
-                            self.curvePos = g.frame(in: .global).midX
-                            self.menu3 = true
+                       
+                            DispatchQueue.main.async {
+                                self.resetMenu()
+                                self.index = 3
+                                self.menu3 = true
+                            }
+                    
                         }
                     }, label: {
                    
@@ -159,18 +195,9 @@ struct TDtabBar: View {
                             .padding(.all, 15)
                             .background(Color.white.opacity(index == 3 ? 1 : 0)).clipShape(Circle())
                             .offset(y: index == 3 ? -15 :0)
-                           
-                    }).popover(isPresented: $menu3, attachmentAnchor: .point(UnitPoint.bottom), arrowEdge: .top, content: {
-                        VStack {
-                        ListSample().onDisappear(perform: {
-                            index = 8
-                        })
-                        }.frame(height:100, alignment: .top)
                     })
                         }.frame(width: 43, height: 43)
-                        
-                            
-                        
+                       
                         .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX
@@ -188,8 +215,10 @@ struct TDtabBar: View {
                             Button(action: {
                                 withAnimation(.interactiveSpring()){
                             index = 4
+                                    resetMenu()
                             self.curvePos = g.frame(in: .global).midX
                                     self.menu4 = true
+                               
                         }
                     }, label: {
                    
@@ -205,11 +234,7 @@ struct TDtabBar: View {
                             
                     })
                         }.frame(width: 43, height: 43)
-                        .popover(isPresented: $menu4) {
-                                             Text("navigation list")
-                                                 .font(.headline)
-                                                 .padding()
-                                         }
+                        
                         .onAppear {
                             DispatchQueue.main.async {
                                 self.curvePos = g.frame(in: .global).midX
@@ -224,10 +249,12 @@ struct TDtabBar: View {
             .padding(.bottom, 30)
             .padding(.top, 10)
             .frame(width:UIScreen.screenWidth, height:44)
-                
+        
+            
+           
+            
+            
         }).edgesIgnoringSafeArea(.all)
-        .background(Color.white)
-        .frame(width: UIScreen.screenWidth)
         
     }
 }
@@ -255,6 +282,6 @@ struct CShape: Shape {
 struct TDTabBarPreview: PreviewProvider {
 
 static var previews: some View {
-    TDtabBar(curvePos: 10)
+    TDtabBar()
 }
 }

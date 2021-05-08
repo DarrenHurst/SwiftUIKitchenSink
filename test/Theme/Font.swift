@@ -22,6 +22,7 @@ extension Font {
     
     
     public static var LargeBoldFont: Font {
+        loadFonts()
         return Font.custom("Cookie-Regular", size: 20).bold()
     }
     
@@ -31,18 +32,22 @@ extension Font {
     }
     public static var Medium: Font {
      
-        return Font.custom("Helvetica-Neue", size: 22)
+        return Font.custom("Helvetica-Neue", size: 14)
     }
     public static var Large: Font {
         loadFonts()
-        return Font.custom("Cookie-Regular", size: 32)
+        return Font.custom("Cookie-Regular", size: 28)
+    }
+    public static var XLarge: Font {
+        loadFonts()
+        return Font.custom("Cookie-Regular", size:22)
     }
     public static var StandardFont: Font {
         return Font.custom("Helvetica-Neue", size: 12)
     }
     
     public static var TickerFont: Font {
-        return Font.custom("HelveticaNeue-italic", size: 11)
+        return Font.custom("HelveticaNeue-italic", size: 12)
     }
     
 }

@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB026BD82640300200C92E1C /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026BD72640300200C92E1C /* Chart.swift */; };
+		EB026BDD2640643000C92E1C /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026BDC2640643000C92E1C /* Map.swift */; };
+		EB026BE826441D0F00C92E1C /* ViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026BE726441D0F00C92E1C /* ViewAnimation.swift */; };
+		EB026BF32644C43400C92E1C /* IconWithBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026BF22644C43400C92E1C /* IconWithBounce.swift */; };
+		EB026BFD2645C2DD00C92E1C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026BFC2645C2DD00C92E1C /* Onboarding.swift */; };
+		EB026C022645C3B900C92E1C /* OnboardingPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026C012645C3B900C92E1C /* OnboardingPage1.swift */; };
+		EB026C0A2645C43F00C92E1C /* OnboardingPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB026C092645C43F00C92E1C /* OnboardingPage2.swift */; };
 		EB164E97261DD40B009E4BCC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164E96261DD40B009E4BCC /* TabBar.swift */; };
 		EB164E9D261F65C2009E4BCC /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164E9C261F65C2009E4BCC /* Accounts.swift */; };
 		EB164EA5261F65E6009E4BCC /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164EA4261F65E6009E4BCC /* AccountDetail.swift */; };
 		EB164EAB261F6775009E4BCC /* AccountDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164EAA261F6775009E4BCC /* AccountDetailsHeader.swift */; };
 		EB164EB026235B61009E4BCC /* FlatMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB164EAF26235B61009E4BCC /* FlatMenuBar.swift */; };
-		EB41A0BF2631AD1F0060849E /* SmallPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB41A0BE2631AD1F0060849E /* SmallPopover.swift */; };
+		EB41A0BF2631AD1F0060849E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB41A0BE2631AD1F0060849E /* Page.swift */; };
+		EB41A0C4263304500060849E /* PhoneScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB41A0C3263304500060849E /* PhoneScreen.swift */; };
 		EB478202261B90F500A7D671 /* FlyoutNavMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */; };
 		EB49212626287326009561BF /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49212526287326009561BF /* Router.swift */; };
 		EB492131262D1BA7009561BF /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB492130262D1BA7009561BF /* ViewModifier.swift */; };
@@ -58,13 +66,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB026BD72640300200C92E1C /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		EB026BDC2640643000C92E1C /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		EB026BE726441D0F00C92E1C /* ViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimation.swift; sourceTree = "<group>"; };
+		EB026BF22644C43400C92E1C /* IconWithBounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithBounce.swift; sourceTree = "<group>"; };
+		EB026BFC2645C2DD00C92E1C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		EB026C012645C3B900C92E1C /* OnboardingPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1.swift; sourceTree = "<group>"; };
+		EB026C092645C43F00C92E1C /* OnboardingPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2.swift; sourceTree = "<group>"; };
 		EB1152F0260A2F7100D1FBBA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EB164E96261DD40B009E4BCC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		EB164E9C261F65C2009E4BCC /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		EB164EA4261F65E6009E4BCC /* AccountDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 		EB164EAA261F6775009E4BCC /* AccountDetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsHeader.swift; sourceTree = "<group>"; };
 		EB164EAF26235B61009E4BCC /* FlatMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatMenuBar.swift; sourceTree = "<group>"; };
-		EB41A0BE2631AD1F0060849E /* SmallPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPopover.swift; sourceTree = "<group>"; };
+		EB41A0BE2631AD1F0060849E /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		EB41A0C3263304500060849E /* PhoneScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneScreen.swift; sourceTree = "<group>"; };
 		EB478201261B90F500A7D671 /* FlyoutNavMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyoutNavMenu.swift; sourceTree = "<group>"; };
 		EB49212526287326009561BF /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EB492130262D1BA7009561BF /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
@@ -122,6 +138,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB026BFA2645C2A700C92E1C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EB026BFC2645C2DD00C92E1C /* Onboarding.swift */,
+				EB026C012645C3B900C92E1C /* OnboardingPage1.swift */,
+				EB026C092645C43F00C92E1C /* OnboardingPage2.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		EB1152EF260A2F5500D1FBBA /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,7 +248,12 @@
 				EB164E96261DD40B009E4BCC /* TabBar.swift */,
 				EB164EAF26235B61009E4BCC /* FlatMenuBar.swift */,
 				EB49214526319D26009561BF /* ListSample.swift */,
-				EB41A0BE2631AD1F0060849E /* SmallPopover.swift */,
+				EB41A0BE2631AD1F0060849E /* Page.swift */,
+				EB41A0C3263304500060849E /* PhoneScreen.swift */,
+				EB026BD72640300200C92E1C /* Chart.swift */,
+				EB026BDC2640643000C92E1C /* Map.swift */,
+				EB026BE726441D0F00C92E1C /* ViewAnimation.swift */,
+				EB026BF22644C43400C92E1C /* IconWithBounce.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -239,6 +270,7 @@
 		EB4C69C72607ED830037244A /* Workflow */ = {
 			isa = PBXGroup;
 			children = (
+				EB026BFA2645C2A700C92E1C /* Onboarding */,
 				EB164E9B261F65B2009E4BCC /* Accounts */,
 				EB857177260FAF440005FA32 /* Settings */,
 				EB1152EF260A2F5500D1FBBA /* Home */,
@@ -301,6 +333,8 @@
 			dependencies = (
 			);
 			name = test;
+			packageProductDependencies = (
+			);
 			productName = test;
 			productReference = EB4C693626026A4C0037244A /* test.app */;
 			productType = "com.apple.product-type.application";
@@ -372,6 +406,8 @@
 				Base,
 			);
 			mainGroup = EB4C692D26026A4C0037244A;
+			packageReferences = (
+			);
 			productRefGroup = EB4C693726026A4C0037244A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -419,16 +455,21 @@
 				EB4C697D260533CE0037244A /* LoginFormView.swift in Sources */,
 				EBB6A1BF26173E09007993B0 /* Font.swift in Sources */,
 				EB4C693A26026A4C0037244A /* testApp.swift in Sources */,
+				EB026C0A2645C43F00C92E1C /* OnboardingPage2.swift in Sources */,
 				EB857179260FB02F0005FA32 /* SettingView.swift in Sources */,
+				EB41A0C4263304500060849E /* PhoneScreen.swift in Sources */,
 				EBB6A1BA26173DB3007993B0 /* Color.swift in Sources */,
 				EB164EAB261F6775009E4BCC /* AccountDetailsHeader.swift in Sources */,
+				EB026BD82640300200C92E1C /* Chart.swift in Sources */,
 				EB164EA5261F65E6009E4BCC /* AccountDetail.swift in Sources */,
 				EBE88492261CB3BE0035CE93 /* HeaderView.swift in Sources */,
 				EB492131262D1BA7009561BF /* ViewModifier.swift in Sources */,
 				EB857189260FB0ED0005FA32 /* UIScreen.swift in Sources */,
 				EB164E97261DD40B009E4BCC /* TabBar.swift in Sources */,
+				EB026BFD2645C2DD00C92E1C /* Onboarding.swift in Sources */,
 				EBE8849C261CB6750035CE93 /* ContentView.swift in Sources */,
-				EB41A0BF2631AD1F0060849E /* SmallPopover.swift in Sources */,
+				EB026BDD2640643000C92E1C /* Map.swift in Sources */,
+				EB41A0BF2631AD1F0060849E /* Page.swift in Sources */,
 				EB49214626319D26009561BF /* ListSample.swift in Sources */,
 				EBB6A1B026160C28007993B0 /* ButtonNav.swift in Sources */,
 				EB492139262F93E8009561BF /* Animations.swift in Sources */,
@@ -437,10 +478,13 @@
 				EBB6A1B526160C94007993B0 /* DashboardButton.swift in Sources */,
 				EB478202261B90F500A7D671 /* FlyoutNavMenu.swift in Sources */,
 				EB4C69D32608CD080037244A /* LoginView.swift in Sources */,
+				EB026BF32644C43400C92E1C /* IconWithBounce.swift in Sources */,
 				EB8571962612093D0005FA32 /* CircleImage.swift in Sources */,
 				EB164EB026235B61009E4BCC /* FlatMenuBar.swift in Sources */,
 				EBE8843D261BAB730035CE93 /* HomeView.swift in Sources */,
 				EB4C696826051DFB0037244A /* LoginViewModel.swift in Sources */,
+				EB026C022645C3B900C92E1C /* OnboardingPage1.swift in Sources */,
+				EB026BE826441D0F00C92E1C /* ViewAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

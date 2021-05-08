@@ -12,10 +12,29 @@ import SwiftUI
 struct Standard: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .top)
-            .background(Color.LightGray)
+            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight).background(Color.clear)
+            
     }
 }
+
+struct Icon: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width: 200, height: 200).background(Color.clear).foregroundColor(.black)
+    }
+}
+
+extension View {
+    func standard() -> some View {
+       modifier(Standard())
+    }
+    
+    func icon() -> some View {
+        modifier(Icon())
+    }
+}
+
+
 struct StandardButton: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -25,12 +44,6 @@ struct StandardButton: ViewModifier {
     }
 }
 
-extension View {
-    func standard() -> some View {
-       modifier(Standard())
-        //.modifier(StandardButton())
-    }
-}
 extension Button {
     func standardButton() -> some View {
         modifier(StandardButton())
