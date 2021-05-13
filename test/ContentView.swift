@@ -7,19 +7,22 @@
 
 import SwiftUI
 import Combine
+import RealmSwift
 
 
 struct ContentView: View {
-    
+
+  
+      
      var body: some View {
+     
         VStack {
             NavigationView {
                Accounts().offset(y:24)// size of tabbar
-         
             }
-                   .navigationBarTitle("")
+            .navigationBarTitle("")
             .navigationBarHidden(true)
-         
+          
                
             
         }

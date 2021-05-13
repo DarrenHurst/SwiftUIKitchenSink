@@ -40,7 +40,7 @@ extension Font {
     }
     public static var XLarge: Font {
         loadFonts()
-        return Font.custom("Cookie-Regular", size:22)
+        return Font.custom("Cookie-Regular", size:42)
     }
     public static var StandardFont: Font {
         return Font.custom("Helvetica-Neue", size: 12)

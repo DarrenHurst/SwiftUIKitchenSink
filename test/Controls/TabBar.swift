@@ -6,7 +6,6 @@
 //
 import Foundation
 import SwiftUI
-import Lottie
 
 struct TDtabBar: View {
     @State var index: Int = 8

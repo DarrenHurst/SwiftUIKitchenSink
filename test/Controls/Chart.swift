@@ -52,7 +52,15 @@ struct ChartView: View {
         Int(self.maxYValue / self.yStepValue)
     }
     
-    var body: some View { VStack { chartBody } }
+    var body: some View {
+        ZStack {
+            VStack{
+                chartBody
+                
+            }.frame(height:400)
+            }
+        
+    }
     
     private var chartBody: some View {
         

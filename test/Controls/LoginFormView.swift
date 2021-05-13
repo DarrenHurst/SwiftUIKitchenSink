@@ -14,7 +14,6 @@ struct LoginFormView: View {
     @Binding var showMenu: Bool 
     @ObservedObject var formModel: FormModel
     
-    var bounce: Animation = Animation.default.repeatCount(5).speed(3)
 
     var body: some View {
       
@@ -30,7 +29,7 @@ struct LoginFormView: View {
             
             SecureField("Enter a password", text: $formModel.password).frame(width: 280, height: 30,alignment: .leading)
             .offset(x: offset)  // amount to "shake"
-            .animation(offset != 0 ? bounce:nil)
+            .animation(offset != 0 ? runBounce():nil)
             .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
             .padding(5.0)
             

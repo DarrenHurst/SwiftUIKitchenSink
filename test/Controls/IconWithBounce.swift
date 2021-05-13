@@ -19,15 +19,11 @@ struct IconWithBounce: View {
     
     var body: some View {
         ZStack {
-            Circle().frame(width:75, height: 75).foregroundColor(Color.red)
-                //.offset(y: run ? 1 : 1)
-                .opacity(0.4)
-                .scaleEffect(run ? CGSize(width: 1, height: 1) : CGSize(width: 1, height: -1))
-                .animation(run ? runAnimation().speed(speed) : stopAnimation())
-            
+            Circle()
+                .background(
             image
                 .resizable()
-                .rotationEffect(Angle(radians: run ? 1 : -1))
+                
                 .padding(.all, 10)
                 .clipShape(Circle())
                 .frame(width: 60, height: 60, alignment: .center)
@@ -35,19 +31,41 @@ struct IconWithBounce: View {
                 .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                 .opacity(run ? 1.0 : 1.0)
              
+                
+                 
+                
+              
+                .scaleEffect(run ? CGSize(width: 1, height: 1) : CGSize(width: 1, height: -1))
+                
+                // Swing
+                //.rotationEffect(Angle(radians: run ? 1 : -1))
+                // Spin
+                //.rotationEffect(Angle(radians: run ? 0 : 360))
+               
+                //.animation(run ? runAnimation() : stopAnimation())
+                //.offset(x: 2, y:0)
+                ).frame(width:75, height: 75).foregroundColor(Color.red)
+                //.offset(y: run ? 1 : 1)
+                .opacity(0.4)
+                .scaleEffect(run ? CGSize(width: 1, height: 1) : CGSize(width: 1, height: -1))
+                
+                .offset(y: run ? 0 : 5)
+                .animation(run ? runSpring(): nil)
+                
+                .animation(run ? runAnimation() : runSpring())
+                // Spin
+                //.rotationEffect(Angle(radians: run ? 0 : 360)).animation(run ? runAnimation() : nil)
+               
                 .onTapGesture(perform: {
                     DispatchQueue.main.async {
                         self.Action()
                     }
                 })
+                .onAppear() {
+                    //run = false
+                }
                
-              
-                .scaleEffect(run ? CGSize(width: 1, height: 1) : CGSize(width: 1, height: 1))
-                
-                
-                .animation(run ? runAnimation().speed(speed) : stopAnimation())
-                .rotationEffect(Angle(radians: run ? 0 : 360))
-                  
+            
         }
         .accessibility(hidden: false)
     }

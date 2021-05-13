@@ -20,7 +20,7 @@ struct Standard: ViewModifier {
 struct Icon: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: 200, height: 200).background(Color.clear).foregroundColor(.black)
+            .frame(width: 70, height: 70).background(Color.clear).foregroundColor(.black)
     }
 }
 
