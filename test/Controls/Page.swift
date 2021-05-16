@@ -23,7 +23,7 @@ struct Page : View {
             VStack{
             ZStack {
                 VStack{}.standard().background(backgroundColor)
-                 .opacity(colorScheme == .light ? 0.25 : 0.45)  //curtain
+                 .opacity(colorScheme == .light ? 0.15 : 0.45)  //curtain
                 AnyView(view)
             }.opacity(isPresented ? 1.0: 0.0)
             .frame(alignment:.top)

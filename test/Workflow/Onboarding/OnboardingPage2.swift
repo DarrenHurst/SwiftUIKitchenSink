@@ -3,18 +3,17 @@ import SwiftUI
 
 
 protocol OnboardPage2Protocol {
-    var realmModel: RealmModel {get set}
-    var theDogs: [Dog] {get set}
+    var theDogs: RealmCombineInteractor {get set}
 }
 struct OnboardPage2: View, OnboardPage2Protocol {
+    var theDogs: RealmCombineInteractor = RealmCombineInteractor.init()
+    
     var realmModel: RealmModel
     @Binding var presented: Bool
      var Action: () -> Void
    
    
     var image: Image =  Image(systemName: "arrow.left.circle")
-    @State var puppies : [Dog] = []
-    @State var theDogs: [Dog] = []
     
     var body: some View {
         ZStack {
@@ -27,14 +26,14 @@ struct OnboardPage2: View, OnboardPage2Protocol {
             VStack {
                 Text("This is Realm data").font(.XLarge).offset(y:250)
                 List {
-                    ForEach ( puppies, content: { dog in
+                    ForEach ( theDogs.puppies, content: { dog in
                             Text("Puppy Name: \(dog.name)")
                                 .onAppear() {
                                 print(dog)
                             }
                 })
                 
-                    ForEach ( theDogs, content: { dog in
+                    ForEach ( theDogs.dogs, content: { dog in
                     Button("Dog Name: \(dog.name)",action: {
                         //writeNewDog(name: "Pepper", age: 1)
                     })
@@ -43,16 +42,11 @@ struct OnboardPage2: View, OnboardPage2Protocol {
                 }.offset(y:200)
                 
             }.standard()
-            .onAppear() {
-                refresh()
-              }
+            
         }
     }
     
-    func refresh() {
-        theDogs = realmModel.getDoggies()
-        puppies = realmModel.getPuppies()
-    }
+   
     
 }
 

@@ -7,19 +7,42 @@
 
 import Foundation
 import RealmSwift
+import Combine
 
 
-class Dog: Object, Identifiable  {
+class Dog: Object, ObjectKeyIdentifiable, Identifiable   {
+   // @objc dynamic var id = ObjectId.generate()
     @objc dynamic var name = ""
     @objc dynamic var age = 0
-    var seen = false
+    
+   // override static func primaryKey() -> String? {
+   //   "id"
+   // }
+    /// The backlink to the `Person` this dog is owned by.
+    let person = LinkingObjects(fromType: Person.self, property: "dogs")
 }
-class Person: Object {
-    @objc dynamic var name = ""
+class Person: Object, ObjectKeyIdentifiable, Identifiable  {
+    //@objc dynamic var id = ObjectId.generate()
+    @objc dynamic var name = "Darren"
     @objc dynamic var picture: Data? = nil // optionals supported
-    var  dogs : [Dog] = []
+   
+    var dogs = RealmSwift.List<Dog>()
+
 }
 
+//Combine
+class RealmCombineInteractor : ObservableObject {
+@Published var dogs = [Dog]() // Binding Array
+@Published var puppies = [Dog]()
+init () {
+        self.addBindings()
+    }
+    func addBindings() {
+        let realm: RealmModel = RealmModel.init()
+        dogs = realm.getDoggies()  // Cobime object Dogs
+    }
+
+}
 protocol RealmProtocol {
     func startConnection() -> Void
     func getPuppies() -> [Dog]
@@ -28,6 +51,9 @@ protocol RealmProtocol {
 
 struct RealmModel: RealmProtocol {
     
+    init() {
+        startConnection()
+    }
     func match(in string: String) -> [String] {
         let words = string.components(
             separatedBy: .whitespacesAndNewlines
@@ -43,7 +69,26 @@ struct RealmModel: RealmProtocol {
            
               print("Login status: \(response)") // RLMUser
                     
-              
+           
+                    let config = Realm.Configuration(
+                        // Set the new schema version. This must be greater than the previously used
+                        // version (if you've never set a schema version before, the version is 0).
+                        schemaVersion: 1,
+
+                        // Set the block which will be called automatically when opening a Realm with
+                        // a schema version lower than the one set above
+                        migrationBlock: { migration, oldSchemaVersion in
+                            // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                            if (oldSchemaVersion < 1) {
+                                // Nothing to do!
+                                // Realm will automatically detect new properties and removed properties
+                                // And will update the schema on disk automatically
+                            }
+                        })
+
+                    // Tell Realm to use this new configuration object for the default Realm
+                    Realm.Configuration.defaultConfiguration = config
+                
           }
       }
     
